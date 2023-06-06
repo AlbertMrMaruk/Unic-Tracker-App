@@ -15,23 +15,27 @@ function Navbar() {
           </span>
           <input
             type="text"
-            className="w-[9rem] active:border-none active:outline-none focus:outline-none bg-transparent"
+            className="w-[9rem] active:border-none active:outline-none focus:outline-none bg-transparent "
           />
         </div>
       </div>
       <div className="w-[33%] ">
-        <img src={logo} className="w-[75px] m-auto" alt="logo" />
+        <img src={logo} className="w-[75px] cursor-pointer m-auto" alt="logo" />
         <h4 className="text-[#d1cdc5] text-xl font-semibold mt-2">
           Things to focus on today.
         </h4>
       </div>
       <div className="w-[33%]  ">
         <div className="flex gap-5 w-[100%] justify-end">
-          <div className="btn btn-primary rounded-full border-[#38dbe0]  px-4 text-[#38dbe0] border-solid border-2 flex gap-2 py-2 ">
+          <div className="btn btn-primary rounded-full border-[#38dbe0]  px-4 text-[#38dbe0] border-solid border-2 flex gap-2 py-2 cursor-pointer ">
             <FaPlus className="my-1.5" />
             <p className="text-lg font-[900]">CREATE</p>
           </div>
-          <img src={avatar} className="rounded-full w-[50px]" alt="Avatar" />{" "}
+          <img
+            src={avatar}
+            className="cursor-pointer rounded-full w-[50px]"
+            alt="Avatar"
+          />
         </div>
       </div>
     </div>
