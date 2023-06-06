@@ -12,18 +12,16 @@ function TaskList() {
         //Get a referee
         const docsRef = collection(db, "tasks");
         // Create a query
-        const q = query(docsRef, orderBy("timestamp", "desc"), limit(10));
+        // const q = query(docsRef, orderBy("timestamp", "desc"), limit(10));
         //Execute a query
-        const querySnap = await getDocs(q);
+        const querySnap = await getDocs(docsRef);
         const tasksArr = [];
-        console.log(querySnap[0]);
         querySnap.forEach((el) => {
           return tasksArr.push({
             id: el.id,
             data: el.data(),
           });
         });
-        console.log(tasksArr);
         setTasks(tasksArr);
       } catch (error) {
         console.error("Could not fetch tasks");
@@ -34,8 +32,14 @@ function TaskList() {
 
   return (
     <main className="flex  flex-col gap-6 px-[5rem]">
-      <Task />
-      <TaskBlack />
+      {tasks &&
+        tasks.map((el, index) =>
+          index === 0 ? (
+            <Task task={el.data} key={index} />
+          ) : (
+            <TaskBlack task={el.data} key={index} />
+          )
+        )}
     </main>
   );
 }

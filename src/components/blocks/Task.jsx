@@ -1,13 +1,13 @@
 import { FaPlus } from "react-icons/fa";
 
-function Task() {
+function Task({ task }) {
   return (
     <div className="w-[100%] bg-[#38dbe0] text-black rounded-2xl">
       <div className="bg-[#2fc7cd] rounded-t-xl flex justify-between w-[100%] py-3 px-7">
         <div className="ml-[3.5rem]">
-          <h4 className="font-bold  text-uppercase text-xl">Podcast</h4>
+          <h4 className="font-bold  text-uppercase text-xl">{task.category}</h4>
           <h2 className="font-bold  text-uppercase text-2xl ">
-            Consider Website
+            {task.project}
           </h2>
         </div>
         <FaPlus className="my-5 text-xl cursor-pointer" />
@@ -20,9 +20,9 @@ function Task() {
           />
           <div className="ml-[.75rem]">
             <h2 className="font-bold  text-uppercase text-[1.4rem]">
-              Here is the title of the task
+              {task.title}
             </h2>
-            <p className="text-md"> Here is the thing and stuff</p>
+            <p className="text-md"> {task.desc}</p>
           </div>
         </div>
         <p className="text-lg my-auto font-bold">Tommorow</p>
