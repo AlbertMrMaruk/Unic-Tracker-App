@@ -16,7 +16,7 @@ function Task() {
         <div className="flex gap-3 align-middle">
           <input
             type="checkbox"
-            class="appearance-none checked:bg-black border-[2.5px] rounded-md m-auto border-black border-solid w-[35px] h-[35px]"
+            className="appearance-none checked:bg-black border-[2.5px] rounded-md m-auto border-black border-solid w-[35px] h-[35px]"
           />
           <div className="ml-[.75rem]">
             <h2 className="font-bold  text-uppercase text-[1.4rem]">

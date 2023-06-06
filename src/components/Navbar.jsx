@@ -10,7 +10,7 @@ function Navbar() {
     >
       <div className="w-[33%]">
         <div className=" flex   rounded-full w-[13rem]  text-lg py-1 bg-[#353535] text-white">
-          <span class="text-center  text-white px-3 py-1">
+          <span className="text-center  text-white px-3 py-1">
             <FaSearch />
           </span>
           <input
