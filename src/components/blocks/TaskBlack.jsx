@@ -12,7 +12,7 @@ function TaskBlack() {
             Consider Website
           </h2>
         </div>
-        <FaPlus className="my-5 text-xl text-[#8e897b]" />
+        <FaPlus className="my-5 text-xl cursor-pointer text-[#8e897b]" />
       </div>
       <div className="px-7 py-5 rounded-b-xl flex justify-between align-middle m-auto">
         <div className="flex gap-3 align-middle">
@@ -25,12 +25,11 @@ function TaskBlack() {
               Here is the title of the task
             </h2>
             <p className="text-md text-[#6c6b62]">
-              {" "}
               Here is the thing and stuff
             </p>
           </div>
         </div>
-        <p className="text-lg my-auto font-bold text-[#8e897b]">Tommorow</p>
+        <p className="text-lg my-auto font-bold text-[#8e897b] ">Tommorow</p>
       </div>
     </div>
   );

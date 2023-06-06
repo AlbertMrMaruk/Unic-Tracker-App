@@ -10,7 +10,7 @@ function Task() {
             Consider Website
           </h2>
         </div>
-        <FaPlus className="my-5 text-xl" />
+        <FaPlus className="my-5 text-xl cursor-pointer" />
       </div>
       <div className="px-7 py-5 rounded-b-xl flex justify-between align-middle m-auto">
         <div className="flex gap-3 align-middle">
