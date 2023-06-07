@@ -2,7 +2,7 @@ import { FaPlus } from "react-icons/fa";
 
 function Task({ task }) {
   return (
-    <div className="w-[100%] bg-[#38dbe0] text-black rounded-2xl">
+    <div className="w-[100%] bg-[#38dbe0] text-black rounded-2xl shadow-xl shadow-[#00000047]">
       <div className="bg-[#2fc7cd] rounded-t-xl flex justify-between w-[100%] py-3 px-7">
         <div className="ml-[3.5rem]">
           <h4 className="font-bold  text-uppercase text-xl">{task.category}</h4>

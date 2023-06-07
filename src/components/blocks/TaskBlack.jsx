@@ -2,7 +2,7 @@ import { FaPlus } from "react-icons/fa";
 
 function TaskBlack({ task }) {
   return (
-    <div className="w-[100%] bg-[#242527] rounded-2xl">
+    <div className="w-[100%] bg-[#242527] rounded-2xl shadow-xl shadow-[#00000047]">
       <div className="bg-[#383a39] rounded-t-xl flex justify-between w-[100%] py-3 px-7">
         <div className="ml-[3.5rem]">
           <h4 className="font-bold  text-uppercase text-xl text-[#8e897b]">

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import TaskList from "./components/TaskList";
 import CreatePage from "./pages/CreatePage";
+import CreateCategory from "./pages/CreateCategory";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           }
         />
         <Route path="/create" element={<CreatePage />} />
+        <Route path="/create-category" element={<CreateCategory />} />
       </Routes>
     </Router>
   );
