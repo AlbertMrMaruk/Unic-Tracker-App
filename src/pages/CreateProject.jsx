@@ -15,7 +15,7 @@ function CreateProject() {
       const categoriesSnap = await getDocs(collection(db, "categories"));
       const categoriesArr = [];
       categoriesSnap.forEach((el) =>
-        categoriesArr.push({ name: el.data().name, id: el.id })
+        categoriesArr.push({ data: el.data(), id: el.id })
       );
       setCategories(categoriesArr);
       setCategory(categoriesArr[0]);
@@ -26,7 +26,7 @@ function CreateProject() {
   const addProject = async () => {
     await addDoc(collection(db, "projects"), {
       name: project,
-      category: category.name,
+      category: category.data.name,
       categoryId: category.id,
     });
     navigate("/");

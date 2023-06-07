@@ -5,16 +5,17 @@ function Field({ icon, placeholder, text, setText, select, options }) {
       {select ? (
         <select
           className=" border-none outline-none bg-transparent text-white font-bold placeholder:text-[#837f79] placeholder:font-bold focus:outline-none focus:border-none w-[100%]"
-          onChange={(e) =>
+          onChange={(e) => {
+            const elem = options.find((el) => el.data.name === e.target.value);
             setText({
-              name: e.target.value,
-              id: options.find((el) => el.name === e.target.value).id,
-            })
-          }
+              data: elem.data,
+              id: elem.id,
+            });
+          }}
         >
           {Array.from(options).map((el, index) => (
             <option key={index} data-id={el.id}>
-              {el.name}
+              {el.data.name}
             </option>
           ))}
         </select>

@@ -4,6 +4,7 @@ import TaskList from "./components/TaskList";
 import CreatePage from "./pages/CreatePage";
 import CreateCategory from "./pages/CreateCategory";
 import CreateProject from "./pages/CreateProject";
+import CreateTask from "./pages/CreateTask";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/create" element={<CreatePage />} />
         <Route path="/create-category" element={<CreateCategory />} />
         <Route path="/create-project" element={<CreateProject />} />
+        <Route path="/create-task" element={<CreateTask />} />
       </Routes>
     </Router>
   );
