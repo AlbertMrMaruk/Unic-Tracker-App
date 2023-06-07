@@ -1,8 +1,20 @@
 import { FaObjectGroup, FaBullseye } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase.config";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateCategory() {
+  const navigate = useNavigate();
+  const [category, setCategory] = useState("");
+  const addCategory = async () => {
+    await addDoc(collection(db, "categories"), {
+      name: category,
+    });
+    navigate("/");
+  };
   return (
     <div className="bg-[#1b1d1f] h-screen">
       <Navbar />
@@ -14,8 +26,13 @@ function CreateCategory() {
         <Field
           icon={<FaObjectGroup className="text-[#38dbe0] text-4xl my-auto" />}
           placeholder={"Your category name..."}
+          setText={setCategory}
+          text={category}
         ></Field>
-        <div className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[18rem] left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in ">
+        <div
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[18rem] left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          onClick={addCategory}
+        >
           <FaBullseye className="my-auto text-2xl" />
           Make it So
         </div>

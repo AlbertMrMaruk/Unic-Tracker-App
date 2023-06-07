@@ -16,11 +16,13 @@ function CreatePage() {
           <p className="text-md mt-2">A single item to do</p>
         </div>
         <div className="border-2 border-white text-white rounded-3xl py-7 px-2 w-[33%] text-center cursor-pointer hover:bg-[#38dbe0] hover:border-[#38dbe0] hover:text-black ease-in duration-150 shadow-xl shadow-[#00000047]">
-          <FaProjectDiagram className="m-auto text-5xl" />
-          <h3 className="text-2xl font-bold mt-3 ">New Project</h3>
-          <p className="text-md mt-2">
-            A bigger task or goal thats requires multiple steps
-          </p>
+          <Link to="/create-project">
+            <FaProjectDiagram className="m-auto text-5xl" />
+            <h3 className="text-2xl font-bold mt-3 ">New Project</h3>
+            <p className="text-md mt-2">
+              A bigger task or goal thats requires multiple steps
+            </p>
+          </Link>
         </div>
 
         <div className="border-2 border-white text-white rounded-3xl py-7 px-2 w-[33%] text-center cursor-pointer hover:bg-[#38dbe0] hover:border-[#38dbe0] hover:text-black ease-in duration-150 shadow-xl shadow-[#00000047]">

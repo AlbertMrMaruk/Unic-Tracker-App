@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import TaskList from "./components/TaskList";
 import CreatePage from "./pages/CreatePage";
 import CreateCategory from "./pages/CreateCategory";
+import CreateProject from "./pages/CreateProject";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         />
         <Route path="/create" element={<CreatePage />} />
         <Route path="/create-category" element={<CreateCategory />} />
+        <Route path="/create-project" element={<CreateProject />} />
       </Routes>
     </Router>
   );
