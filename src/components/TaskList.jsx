@@ -1,5 +1,4 @@
 import Task from "./blocks/Task";
-import TaskBlack from "./blocks/TaskBlack";
 import { useEffect, useState } from "react";
 import {
   collection,
@@ -13,7 +12,7 @@ import { db } from "../firebase.config";
 
 function TaskList({ isDone }) {
   const [tasks, setTasks] = useState();
-  const [done, setDone] = useState(false);
+  const [doneInf, setDoneInf] = useState(false);
   useEffect(() => {
     const getTasks = async () => {
       try {
@@ -37,24 +36,20 @@ function TaskList({ isDone }) {
       }
     };
     getTasks();
-  }, []);
+  }, [doneInf]);
 
   return (
     <main className="flex  flex-col gap-6 px-[5rem]">
       {tasks &&
-        tasks.map((el, index) =>
-          index === 0 ? (
-            <Task
-              task={el.data}
-              done={done}
-              setDone={setDone}
-              id={el.id}
-              key={index}
-            />
-          ) : (
-            <TaskBlack task={el.data} id={el.id} key={index} />
-          )
-        )}
+        tasks.map((el, index) => (
+          <Task
+            task={el.data}
+            setDoneInf={setDoneInf}
+            id={el.id}
+            key={index}
+            isDark={index !== 0}
+          />
+        ))}
     </main>
   );
 }
