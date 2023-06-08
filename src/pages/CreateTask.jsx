@@ -1,15 +1,22 @@
 import { FaRegCheckSquare, FaProjectDiagram, FaBullseye } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  serverTimestamp,
+} from "firebase/firestore";
 import { db } from "../firebase.config";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Textarea from "../components/blocks/Textarea";
 
 function CreateTask() {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({});
+  const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
   useEffect(() => {
     const getProjects = async () => {
@@ -24,21 +31,17 @@ function CreateTask() {
     getProjects();
   }, []);
   const addTask = async () => {
-    console.log({
-      name: task,
+    await addDoc(collection(db, "tasks"), {
+      title: task,
       project: project.data.name,
       projectId: project.id,
       categoryId: project.data.categoryId,
       category: project.data.category,
+      desc: desc,
+      timestamp: serverTimestamp(),
+      done: false,
     });
-    // await addDoc(collection(db, "projects"), {
-    //   name: project,
-    //   project: project.name,
-    //   projectId: project.id,
-    //   categoryId: project.categoryId,
-    //   category: project.category,
-    // });
-    // navigate("/");
+    navigate("/");
   };
   return (
     <div className="bg-[#1b1d1f] h-screen">
@@ -66,8 +69,9 @@ function CreateTask() {
           select={true}
           options={projects}
         ></Field>
+        <Textarea text={desc} setText={setDesc}></Textarea>
         <div
-          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[22rem] left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[31rem] left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
           onClick={addTask}
         >
           <FaBullseye className="my-auto text-2xl" />

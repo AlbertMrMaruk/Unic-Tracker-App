@@ -1,6 +1,13 @@
 import { FaPlus } from "react-icons/fa";
+import { updateDoc, doc, collection } from "firebase/firestore";
+import { db } from "../../firebase.config";
+import { useState } from "react";
 
-function Task({ task }) {
+function Task({ task, id, done, setDone }) {
+  const editTask = async (doneD) => {
+    setDone(doneD);
+    await updateDoc(doc(db, "tasks", id), { ...task, done: doneD });
+  };
   return (
     <div className="w-[100%] bg-[#38dbe0] text-black rounded-2xl shadow-xl shadow-[#00000047]">
       <div className="bg-[#2fc7cd] rounded-t-xl flex justify-between w-[100%] py-3 px-7">
@@ -16,7 +23,11 @@ function Task({ task }) {
         <div className="flex gap-3 align-middle">
           <input
             type="checkbox"
-            className="appearance-none checked:bg-black border-[2.5px] rounded-md m-auto border-black border-solid w-[35px] h-[35px]"
+            className="appearance-none  border-[2.5px] rounded-md m-auto border-black border-solid w-[35px] h-[35px] checked:bg-black"
+            checked={done}
+            onChange={(e) => {
+              editTask(e.target.checked);
+            }}
           />
           <div className="ml-[.75rem]">
             <h2 className="font-bold  text-uppercase text-[1.4rem]">

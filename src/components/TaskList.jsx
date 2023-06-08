@@ -1,20 +1,29 @@
 import Task from "./blocks/Task";
 import TaskBlack from "./blocks/TaskBlack";
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+  where,
+} from "firebase/firestore";
 import { db } from "../firebase.config";
 
-function TaskList() {
+function TaskList({ isDone }) {
   const [tasks, setTasks] = useState();
+  const [done, setDone] = useState(false);
   useEffect(() => {
     const getTasks = async () => {
       try {
         //Get a referee
         const docsRef = collection(db, "tasks");
         // Create a query
-        // const q = query(docsRef, orderBy("timestamp", "desc"), limit(10));
+        const q = query(docsRef, where("done", "==", isDone), limit(10));
+        //orderBy("timestamp", "desc")
         //Execute a query
-        const querySnap = await getDocs(docsRef);
+        const querySnap = await getDocs(q);
         const tasksArr = [];
         querySnap.forEach((el) => {
           return tasksArr.push({
@@ -35,9 +44,15 @@ function TaskList() {
       {tasks &&
         tasks.map((el, index) =>
           index === 0 ? (
-            <Task task={el.data} key={index} />
+            <Task
+              task={el.data}
+              done={done}
+              setDone={setDone}
+              id={el.id}
+              key={index}
+            />
           ) : (
-            <TaskBlack task={el.data} key={index} />
+            <TaskBlack task={el.data} id={el.id} key={index} />
           )
         )}
     </main>

@@ -13,9 +13,13 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="bg-[#1b1d1f] h-screen">
+            <div className="bg-[#1b1d1f] h-max pb-10">
               <Navbar />
-              <TaskList />
+              <TaskList isDone={false} />
+              <h2 className="text-4xl my-10 font-bold text-white text-center">
+                Done Tasks
+              </h2>
+              <TaskList isDone={true} />
             </div>
           }
         />
