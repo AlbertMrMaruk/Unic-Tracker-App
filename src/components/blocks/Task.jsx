@@ -1,5 +1,5 @@
 import { FaPlus, FaTrash } from "react-icons/fa";
-import { updateDoc, doc, collection, deleteDoc } from "firebase/firestore";
+import { updateDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase.config";
 
 function Task({ task, id, setDoneInf, doneInf, isDark }) {
@@ -11,6 +11,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
     await deleteDoc(doc(db, "tasks", id));
     setDoneInf((doneI) => ({ ...doneI, [id]: "deleted" }));
   };
+  const data = new Date(task.timestamp.seconds * 1000);
   return (
     <div
       className={`w-[100%] ${
@@ -82,7 +83,15 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
         <p
           className={`text-lg my-auto font-bold ${isDark && "text-[#8e897b]"}`}
         >
-          Tommorow
+          {data.toLocaleDateString("default", {
+            day: "2-digit",
+            month: "long",
+          }) +
+            "  " +
+            data.toLocaleTimeString("default", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
         </p>
       </div>
     </div>
