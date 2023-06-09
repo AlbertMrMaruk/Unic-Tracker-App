@@ -29,7 +29,7 @@ function CreateProject() {
       category: category.data.name,
       categoryId: category.id,
     });
-    navigate("/");
+    navigate("/create-task");
   };
   return (
     <div className="bg-[#1b1d1f] h-max min-h-[100vh] pb-10">

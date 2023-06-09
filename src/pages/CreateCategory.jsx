@@ -13,7 +13,7 @@ function CreateCategory() {
     await addDoc(collection(db, "categories"), {
       name: category,
     });
-    navigate("/");
+    navigate("/create-project");
   };
   return (
     <div className="bg-[#1b1d1f] h-screen">

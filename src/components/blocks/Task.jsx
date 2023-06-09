@@ -56,7 +56,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
         <div className="flex gap-3 align-middle">
           <input
             type="checkbox"
-            className={`appearance-none  border-[2.5px] rounded-md m-auto border-solid w-[35px] h-[35px]  ${
+            className={`appearance-none cursor-pointer  border-[2.5px] rounded-md m-auto border-solid w-[35px] h-[35px]  ${
               isDark
                 ? "checked:bg-[#38dbe0] border-[#38dbe0] "
                 : "checked:bg-black border-black "
