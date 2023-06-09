@@ -19,8 +19,12 @@ function TaskList({ setDoneInf, doneInf, isDone }) {
         //Get a referee
         const docsRef = collection(db, "tasks");
         // Create a query
-        const q = query(docsRef, where("done", "==", isDone), limit(10));
-        //orderBy("timestamp", "desc")
+        const q = query(
+          docsRef,
+          where("done", "==", isDone),
+          orderBy("timestamp", "desc"),
+          limit(10)
+        );
         //Execute a query
         const querySnap = await getDocs(q);
         const tasksArr = [];
