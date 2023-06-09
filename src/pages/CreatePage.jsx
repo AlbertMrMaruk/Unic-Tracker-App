@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 function CreatePage() {
   return (
-    <div className="bg-[#1b1d1f] h-screen">
+    <div className="bg-[#1b1d1f] h-max min-h-[100vh] pb-10">
       <Navbar />
       <div className="flex gap-5 mt-[8rem] px-[5rem]">
         <div className="border-2 border-white text-white rounded-3xl py-7 px-2 w-[33%] text-center cursor-pointer hover:bg-[#38dbe0] hover:border-[#38dbe0] hover:text-black ease-in duration-150 shadow-xl shadow-[#00000047]">

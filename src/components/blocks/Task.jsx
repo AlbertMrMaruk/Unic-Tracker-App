@@ -1,12 +1,15 @@
-import { FaPlus } from "react-icons/fa";
-import { updateDoc, doc, collection } from "firebase/firestore";
+import { FaPlus, FaTrash } from "react-icons/fa";
+import { updateDoc, doc, collection, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase.config";
 
 function Task({ task, id, setDoneInf, doneInf, isDark }) {
   const editTask = async (doneD) => {
-    console.log(doneD, id);
     await updateDoc(doc(db, "tasks", id), { ...task, done: doneD });
     setDoneInf((doneI) => ({ ...doneI, [id]: doneD }));
+  };
+  const deleteTask = async () => {
+    await deleteDoc(doc(db, "tasks", id));
+    setDoneInf((doneI) => ({ ...doneI, [id]: "deleted" }));
   };
   return (
     <div
@@ -35,11 +38,19 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
             {task.project}
           </h2>
         </div>
-        <FaPlus
-          className={`my-5 text-xl cursor-pointer ${
-            isDark && "text-[#8e897b]"
-          }`}
-        />
+        <div className="flex gap-5">
+          <FaPlus
+            className={`my-5 text-xl cursor-pointer ${
+              isDark && "text-[#8e897b]"
+            }`}
+          />
+          <FaTrash
+            className={`my-5 text-xl cursor-pointer ${
+              isDark && "text-[#8e897b]"
+            }`}
+            onClick={deleteTask}
+          />
+        </div>
       </div>
       <div className="px-7 py-5 rounded-b-xl flex justify-between align-middle m-auto">
         <div className="flex gap-3 align-middle">
