@@ -10,9 +10,9 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase.config";
 
-function TaskList({ isDone }) {
-  const [tasks, setTasks] = useState();
-  const [doneInf, setDoneInf] = useState(false);
+function TaskList({ setDoneInf, doneInf, isDone }) {
+  const [tasks, setTasks] = useState([]);
+
   useEffect(() => {
     const getTasks = async () => {
       try {
@@ -30,6 +30,7 @@ function TaskList({ isDone }) {
             data: el.data(),
           });
         });
+        console.log(tasksArr);
         setTasks(tasksArr);
       } catch (error) {
         console.error("Could not fetch tasks");
@@ -45,6 +46,7 @@ function TaskList({ isDone }) {
           <Task
             task={el.data}
             setDoneInf={setDoneInf}
+            doneInf={doneInf}
             id={el.id}
             key={index}
             isDark={index !== 0}

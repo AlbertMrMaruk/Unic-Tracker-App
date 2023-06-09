@@ -1,15 +1,12 @@
 import { FaPlus } from "react-icons/fa";
 import { updateDoc, doc, collection } from "firebase/firestore";
 import { db } from "../../firebase.config";
-import { useState } from "react";
 
-function Task({ task, id, setDoneInf, isDark }) {
-  const [done, setDone] = useState(task.done);
+function Task({ task, id, setDoneInf, doneInf, isDark }) {
   const editTask = async (doneD) => {
-    console.log(doneD, task);
-    setDoneInf(Math.random());
-    setDone(doneD);
+    console.log(doneD, id);
     await updateDoc(doc(db, "tasks", id), { ...task, done: doneD });
+    setDoneInf((doneI) => ({ ...doneI, [id]: doneD }));
   };
   return (
     <div
@@ -46,7 +43,6 @@ function Task({ task, id, setDoneInf, isDark }) {
       </div>
       <div className="px-7 py-5 rounded-b-xl flex justify-between align-middle m-auto">
         <div className="flex gap-3 align-middle">
-          {console.log(task.title, task.done, done)}
           <input
             type="checkbox"
             className={`appearance-none  border-[2.5px] rounded-md m-auto border-solid w-[35px] h-[35px]  ${
@@ -54,7 +50,7 @@ function Task({ task, id, setDoneInf, isDark }) {
                 ? "checked:bg-[#38dbe0] border-[#38dbe0] "
                 : "checked:bg-black border-black "
             }`}
-            checked={done}
+            checked={doneInf[task.id] ?? task.done}
             onChange={(e) => {
               editTask(e.target.checked);
             }}
