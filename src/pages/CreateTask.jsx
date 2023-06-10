@@ -1,4 +1,9 @@
-import { FaRegCheckSquare, FaProjectDiagram, FaBullseye } from "react-icons/fa";
+import {
+  FaRegCheckSquare,
+  FaProjectDiagram,
+  FaBullseye,
+  FaCalendarCheck,
+} from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
 import {
@@ -16,6 +21,7 @@ function CreateTask() {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({});
+  const [date, setDate] = useState("");
   const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
   useEffect(() => {
@@ -31,6 +37,7 @@ function CreateTask() {
     getProjects();
   }, []);
   const addTask = async () => {
+    console.log(date);
     await addDoc(collection(db, "tasks"), {
       title: task,
       project: project.data.name,
@@ -38,7 +45,8 @@ function CreateTask() {
       categoryId: project.data.categoryId,
       category: project.data.category,
       desc: desc,
-      timestamp: serverTimestamp(),
+      createdAt: serverTimestamp(),
+      timestamp: Math.floor(date.getTime() / 1000),
       done: false,
     });
     navigate("/");
@@ -68,6 +76,12 @@ function CreateTask() {
           text={project}
           select={true}
           options={projects}
+        ></Field>
+        <Field
+          icon={<FaCalendarCheck className="text-[#38dbe0] text-4xl my-auto" />}
+          type="date"
+          setText={setDate}
+          text={date}
         ></Field>
         <Textarea text={desc} setText={setDesc}></Textarea>
         <div
