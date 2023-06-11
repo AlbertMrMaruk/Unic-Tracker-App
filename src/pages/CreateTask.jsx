@@ -21,7 +21,7 @@ function CreateTask() {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({});
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
   const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
   useEffect(() => {
@@ -37,7 +37,6 @@ function CreateTask() {
     getProjects();
   }, []);
   const addTask = async () => {
-    console.log(date);
     await addDoc(collection(db, "tasks"), {
       title: task,
       project: project.data.name,
@@ -46,7 +45,7 @@ function CreateTask() {
       category: project.data.category,
       desc: desc,
       createdAt: serverTimestamp(),
-      timestamp: Math.floor(date.getTime() / 1000),
+      timestamp: serverTimestamp(new Date(date).getTime() / 1000),
       done: false,
     });
     navigate("/");
@@ -85,7 +84,7 @@ function CreateTask() {
         ></Field>
         <Textarea text={desc} setText={setDesc}></Textarea>
         <div
-          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[31rem] left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[35rem] left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
           onClick={addTask}
         >
           <FaBullseye className="my-auto text-2xl" />
