@@ -4,6 +4,7 @@ import {
   FaBullseye,
   FaCalendarCheck,
 } from "react-icons/fa";
+import logo from "../assets/output-onlinepngtools (8) — копия.png";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
 import {
@@ -37,6 +38,17 @@ function CreateTask() {
     getProjects();
   }, []);
   const addTask = async () => {
+    await Notification.requestPermission();
+    let mailNotification = new Notification(task, {
+      tag: "ache-mail",
+      body: desc,
+      icon: logo,
+    });
+
+    mailNotification.onclick = () => {
+      mailNotification.close();
+      window.parent.focus();
+    };
     await addDoc(collection(db, "tasks"), {
       title: task,
       project: project.data.name,
