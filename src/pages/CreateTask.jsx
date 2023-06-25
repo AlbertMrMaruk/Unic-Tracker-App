@@ -38,17 +38,25 @@ function CreateTask() {
     getProjects();
   }, []);
   const addTask = async () => {
-    await Notification.requestPermission();
-    let mailNotification = new Notification(task, {
-      tag: "ache-mail",
-      body: desc,
-      icon: logo,
-    });
+    // await Notification.requestPermission().then((perm) => {
+    //   if (perm === "granted") {
+    //     const timestamp = new Date().getTime() + 5 * 1000;
+    //     let mailNotification = new Notification(task, {
+    //       tag: "ache-mail",
+    //       body: desc,
+    //       icon: logo,
+    //       showTrigger: new TimestampTrigger(timestamp), // set the time for the push notification
+    //       data: {
+    //         url: window.location.href, // pass the current url to the notification
+    //       },
+    //     });
+    //     mailNotification.onclick = () => {
+    //       mailNotification.close();
+    //       window.parent.focus();
+    //     };
+    //   }
+    // });
 
-    mailNotification.onclick = () => {
-      mailNotification.close();
-      window.parent.focus();
-    };
     await addDoc(collection(db, "tasks"), {
       title: task,
       project: project.data.name,
