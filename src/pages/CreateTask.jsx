@@ -5,6 +5,7 @@ import {
   FaCalendarCheck,
 } from "react-icons/fa";
 import logo from "../assets/output-onlinepngtools (8) — копия.png";
+import { askForNotif, PERMISSION_STATES, subscribeUserToPush } from "../utils";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
 import {
@@ -25,6 +26,7 @@ function CreateTask() {
   const [date, setDate] = useState(new Date());
   const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
+  const [, setPermissionState] = useState(PERMISSION_STATES.UNKNOWN);
   useEffect(() => {
     const getProjects = async () => {
       const projectsSnap = await getDocs(collection(db, "projects"));
@@ -56,6 +58,15 @@ function CreateTask() {
     //     };
     //   }
     // });
+
+    const permisionRes = await askForNotif();
+    setPermissionState(permisionRes);
+    if (permisionRes === PERMISSION_STATES.GRANTED) {
+      const pushSubscription = JSON.parse(
+        JSON.stringify(await subscribeUserToPush())
+      );
+      console.log(pushSubscription);
+    }
 
     await addDoc(collection(db, "tasks"), {
       title: task,
