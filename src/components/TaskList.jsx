@@ -34,7 +34,6 @@ function TaskList({ setDoneInf, doneInf, isDone }) {
             data: el.data(),
           });
         });
-        console.log(tasksArr);
         setTasks(tasksArr);
       } catch (error) {
         console.error("Could not fetch tasks");

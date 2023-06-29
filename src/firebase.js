@@ -24,22 +24,6 @@ async function storeAppInstanceToken(token) {
   }
 }
 
-async function deleteAppInstanceToken(token) {
-  try {
-    const deleteQuery = firestore
-      .collection(FIRESTORE_TOKEN_COLLECTION)
-      .where("token", "==", token);
-    const querySnapshot = await deleteQuery.get();
-    querySnapshot.docs.forEach(async (doc) => {
-      await doc.ref.delete();
-    });
-    return true;
-  } catch (err) {
-    console.log(`Error deleting token [${token}] in firestore`, err);
-    return null;
-  }
-}
-
 const messaging = admin.messaging();
 
 function buildCommonMessage(title, body) {
@@ -82,11 +66,10 @@ async function sendFcmMessage(fcmMessage) {
     console.log(err);
   }
 }
+
 module.exports = {
   buildPlatformMessage,
   storeAppInstanceToken,
   deleteAppInstanceToken,
-  subscribeAppInstanceToTopic,
-  unsubscribeAppInstanceFromTopic,
   sendFcmMessage,
 };
