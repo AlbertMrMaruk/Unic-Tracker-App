@@ -36,6 +36,7 @@ window.Notification.requestPermission((permission) => {
 // await signInWithEmailAndPassword(auth, "albery2015@mail.ru", "ALBert2002");
 // console.log(auth.currentUser);
 
+const messaging = getMessaging(app);
 const token = await getToken(messaging, {
   serviceWorkerRegistration: sw,
 });
