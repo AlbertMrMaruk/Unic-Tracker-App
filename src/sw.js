@@ -1,6 +1,7 @@
 import { onBackgroundMessage } from "firebase/messaging/sw";
 import { initializeApp } from "firebase/app";
 import { getMessaging, isSupported } from "firebase/messaging/sw";
+import { onMessage } from "firebase/messaging";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCcqx6SqmE5_ua6ToGL7NAAI4m6cJQkRow",
@@ -22,11 +23,21 @@ isSupported()
   .then(() => {
     const messaging = getMessaging(app);
     console.log("gg");
-    onMessage(messaging, (payload) => {});
-    onBackgroundMessage(messaging, ({ notification }) => {
-      console.log(notification);
-      const { title, body, image } = notification ?? {};
+    onMessage(messaging, (payload) => {
+      const { title, body, image } = payload ?? {};
+      console.log("ddd");
 
+      if (!title) {
+        return;
+      }
+      self.registration.showNotification(title, {
+        body,
+        icon: image,
+      });
+    });
+    onBackgroundMessage(messaging, ({ notification }) => {
+      const { title, body, image } = notification ?? {};
+      console.log("ddd");
       if (!title) {
         return;
       }

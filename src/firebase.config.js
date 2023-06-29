@@ -21,9 +21,19 @@ if (!supported) {
   alert("Your device is not supproted for web push notifications");
 }
 const sw = await window.navigator.serviceWorker.register("/sw.js");
+
+sw.showNotification({
+  notification: {
+    title: "Wee",
+  },
+});
+
 window.Notification.requestPermission((permission) => {
   if (permission === "granted") {
-    sw.showNotification("Weee");
+    sw.showNotification("Weee", {
+      message: "Something",
+      body: "Bejdnjcbsjdc",
+    });
   }
 });
 
