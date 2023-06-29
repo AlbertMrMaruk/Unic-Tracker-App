@@ -40,6 +40,8 @@ function TaskList({ setDoneInf, doneInf, isDone }) {
       }
     };
     getTasks();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doneInf]);
 
   return (
