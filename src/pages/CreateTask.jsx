@@ -4,7 +4,7 @@ import {
   FaBullseye,
   FaCalendarCheck,
 } from "react-icons/fa";
-import logo from "../assets/output-onlinepngtools (8) — копия.png";
+// import logo from "../assets/output-onlinepngtools (8) — копия.png";
 import { askForNotif, PERMISSION_STATES, subscribeUserToPush } from "../utils";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
