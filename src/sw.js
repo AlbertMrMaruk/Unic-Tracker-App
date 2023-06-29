@@ -17,11 +17,14 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(self.clients.claim());
 });
 
+console.log("SNRTTT");
 isSupported()
   .then(() => {
     const messaging = getMessaging(app);
-
+    console.log("gg");
+    onMessage(messaging, (payload) => {});
     onBackgroundMessage(messaging, ({ notification }) => {
+      console.log(notification);
       const { title, body, image } = notification ?? {};
 
       if (!title) {
@@ -34,4 +37,4 @@ isSupported()
       });
     });
   })
-  .catch(/* error */);
+  .catch((err) => console.error(err));

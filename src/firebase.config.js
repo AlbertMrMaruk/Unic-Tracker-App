@@ -6,6 +6,7 @@ import {
   getToken,
   onMessage,
 } from "firebase/messaging";
+
 // import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
@@ -24,11 +25,10 @@ const supported = await isSupported().catch(() => false);
 if (!supported) {
   alert("Your device is not supproted for web push notifications");
 }
-const sw = await window.navigator.serviceWorker.register("./sw.js");
+const sw = await window.navigator.serviceWorker.register("/sw.js");
 window.Notification.requestPermission((permission) => {
   if (permission === "granted") {
-    console.log("hello?");
-    sw.showNotification("Fucks");
+    sw.showNotification("Weee");
   }
 });
 
