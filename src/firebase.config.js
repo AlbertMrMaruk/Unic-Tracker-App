@@ -1,11 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import {
-  isSupported,
-  getMessaging,
-  getToken,
-  onMessage,
-} from "firebase/messaging";
+import { isSupported, getMessaging, getToken } from "firebase/messaging";
 
 // import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
