@@ -18,34 +18,34 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(self.clients.claim());
 });
 
+const messaging = getMessaging(app);
+onMessage(messaging, (payload) => {
+  const { title, body, image } = payload ?? {};
+  console.log("ddd");
+
+  if (!title) {
+    return;
+  }
+  self.registration.showNotification(title, {
+    body,
+    icon: image,
+  });
+});
+onBackgroundMessage(messaging, ({ notification }) => {
+  const { title, body, image } = notification ?? {};
+  console.log("ddd");
+  if (!title) {
+    return;
+  }
+
+  self.registration.showNotification(title, {
+    body,
+    icon: image,
+  });
+});
 console.log("SNRTTT");
 isSupported()
   .then(() => {
-    const messaging = getMessaging(app);
     console.log("gg");
-    onMessage(messaging, (payload) => {
-      const { title, body, image } = payload ?? {};
-      console.log("ddd");
-
-      if (!title) {
-        return;
-      }
-      self.registration.showNotification(title, {
-        body,
-        icon: image,
-      });
-    });
-    onBackgroundMessage(messaging, ({ notification }) => {
-      const { title, body, image } = notification ?? {};
-      console.log("ddd");
-      if (!title) {
-        return;
-      }
-
-      self.registration.showNotification(title, {
-        body,
-        icon: image,
-      });
-    });
   })
   .catch((err) => console.error(err));

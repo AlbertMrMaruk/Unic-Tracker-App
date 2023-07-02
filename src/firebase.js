@@ -1,3 +1,16 @@
+// importScripts("https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js");
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCcqx6SqmE5_ua6ToGL7NAAI4m6cJQkRow",
+//   authDomain: "task-management-app-c0771.firebaseapp.com",
+//   projectId: "task-management-app-c0771",
+//   storageBucket: "task-management-app-c0771.appspot.com",
+//   messagingSenderId: "1095456840525",
+//   appId: "1:1095456840525:web:dd1cdbad277b6bfee5b504",
+// };
+
+// firebase.initializeApp(firebaseConfig);
+
+// export default firebase;
 // const serviceAccount = require("./service-account.json");
 // const admin = require("firebase-admin");
 

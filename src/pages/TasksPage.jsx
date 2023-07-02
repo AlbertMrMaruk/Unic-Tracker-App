@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import TaskList from "../components/TaskList";
+import useFirebaseMessaging from "@useweb/use-firebase-messaging";
 
 function TasksPage() {
   const [doneInf, setDoneInf] = useState({});
+  const firebaseMessaging = useFirebaseMessaging({
+    onMessage: (message) => {
+      console.log(`Received foreground message`, message);
+    },
+  });
+
+  useEffect(() => {
+    firebaseMessaging.init();
+  }, []);
   return (
     <div className="bg-[#1b1d1f] h-max min-h-[100vh]  pb-10">
       <Navbar />

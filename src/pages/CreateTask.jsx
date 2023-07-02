@@ -26,7 +26,7 @@ function CreateTask() {
   const [date, setDate] = useState(new Date());
   const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
-  const [, setPermissionState] = useState(PERMISSION_STATES.UNKNOWN);
+  // const [, setPermissionState] = useState(PERMISSION_STATES.UNKNOWN);
   useEffect(() => {
     const getProjects = async () => {
       const projectsSnap = await getDocs(collection(db, "projects"));
@@ -59,14 +59,14 @@ function CreateTask() {
     //   }
     // });
 
-    const permisionRes = await askForNotif();
-    setPermissionState(permisionRes);
-    if (permisionRes === PERMISSION_STATES.GRANTED) {
-      const pushSubscription = JSON.parse(
-        JSON.stringify(await subscribeUserToPush())
-      );
-      console.log(pushSubscription);
-    }
+    // const permisionRes = await askForNotif();
+    // setPermissionState(permisionRes);
+    // if (permisionRes === PERMISSION_STATES.GRANTED) {
+    //   const pushSubscription = JSON.parse(
+    //     JSON.stringify(await subscribeUserToPush())
+    //   );
+    //   console.log(pushSubscription);
+    // }
 
     await addDoc(collection(db, "tasks"), {
       title: task,

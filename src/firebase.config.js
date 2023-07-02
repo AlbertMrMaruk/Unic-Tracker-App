@@ -16,34 +16,38 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const supported = await isSupported().catch(() => false);
-if (!supported) {
-  alert("Your device is not supproted for web push notifications");
-}
-const sw = await window.navigator.serviceWorker.register("/sw.js");
+// const supported = await isSupported().catch(() => false);
+// if (!supported) {
+//   alert("Your device is not supproted for web push notifications");
+// }
+// const sw = await window.navigator.serviceWorker.register(
+//   "/firebase-messaging-sw.js"
+// );
 
-sw.showNotification({
-  notification: {
-    title: "Wee",
-  },
-});
+// window.Notification.requestPermission((permission) => {
+//   if (permission === "granted") {
+//     // sw.showNotification({
+//     //   notification: {
+//     //     title: "Wee",
+//     //   },
+//     // });
+//     // sw.showNotification("Weee", {
+//     //   message: "Something",
+//     //   body: "Bejdnjcbsjdc",
+//     // });
+//   }
+// });
 
-window.Notification.requestPermission((permission) => {
-  if (permission === "granted") {
-    sw.showNotification("Weee", {
-      message: "Something",
-      body: "Bejdnjcbsjdc",
-    });
-  }
-});
+// // const auth = getAuth();
+// // await signInWithEmailAndPassword(auth, "albery2015@mail.ru", "ALBert2002");
+// // console.log(auth.currentUser);
 
-// const auth = getAuth();
-// await signInWithEmailAndPassword(auth, "albery2015@mail.ru", "ALBert2002");
-// console.log(auth.currentUser);
+// const messaging = getMessaging(app);
 
-const messaging = getMessaging(app);
-const token = await getToken(messaging, {
-  serviceWorkerRegistration: sw,
-});
-console.log(token);
+// const token = await getToken(messaging, {
+//   serviceWorkerRegistration: sw,
+// });
+// console.log(sw.showNotification("sshjss"));
+// console.log(token);
 export const db = getFirestore();
+// export default sw;
