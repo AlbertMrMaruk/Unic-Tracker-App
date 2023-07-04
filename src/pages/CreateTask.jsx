@@ -113,7 +113,7 @@ function CreateTask() {
             el.type === "img" ? (
               <img
                 src={el.src}
-                alt="Photo from Instagram"
+                alt="Instagram Posts"
                 className="mt-10  z-50 m-auto"
                 width={500}
                 height={500}
