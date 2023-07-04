@@ -10,9 +10,9 @@ import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
 import {
   collection,
-  addDoc,
+  //  addDoc,
   getDocs,
-  serverTimestamp,
+  // serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { useEffect, useState } from "react";
@@ -21,7 +21,7 @@ import Textarea from "../components/blocks/Textarea";
 import { Reels } from "../services/ReelsService";
 
 function CreateTask() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({});
   const [date, setDate] = useState(new Date());
