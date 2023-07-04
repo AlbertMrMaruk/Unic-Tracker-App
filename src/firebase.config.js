@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { isSupported, getMessaging, getToken } from "firebase/messaging";
+// import { isSupported, getMessaging, getToken } from "firebase/messaging";
 
 // import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
@@ -50,4 +50,5 @@ const app = initializeApp(firebaseConfig);
 // console.log(sw.showNotification("sshjss"));
 // console.log(token);
 export const db = getFirestore();
+export default app;
 // export default sw;
