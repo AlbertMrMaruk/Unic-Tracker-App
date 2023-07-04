@@ -4,21 +4,21 @@ import CreateCategory from "./pages/CreateCategory";
 import CreateProject from "./pages/CreateProject";
 import CreateTask from "./pages/CreateTask";
 import TasksPage from "./pages/TasksPage";
-import Firebase from "./components/Firebase";
+// import Firebase from "./components/Firebase";
 
 function App() {
   return (
-    <Firebase>
-      <Router>
-        <Routes>
-          <Route path="/" element={<TasksPage />} />
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="/create-category" element={<CreateCategory />} />
-          <Route path="/create-project" element={<CreateProject />} />
-          <Route path="/create-task" element={<CreateTask />} />
-        </Routes>
-      </Router>
-    </Firebase>
+    // <Firebase>
+    <Router>
+      <Routes>
+        <Route path="/" element={<TasksPage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route path="/create-category" element={<CreateCategory />} />
+        <Route path="/create-project" element={<CreateProject />} />
+        <Route path="/create-task" element={<CreateTask />} />
+      </Routes>
+    </Router>
+    // </Firebase>
   );
 }
 
