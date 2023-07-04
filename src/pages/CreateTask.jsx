@@ -5,7 +5,7 @@ import {
   FaCalendarCheck,
 } from "react-icons/fa";
 // import logo from "../assets/output-onlinepngtools (8) — копия.png";
-import { askForNotif, PERMISSION_STATES, subscribeUserToPush } from "../utils";
+// import { askForNotif, PERMISSION_STATES, subscribeUserToPush } from "../utils";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
 import {
@@ -18,6 +18,7 @@ import { db } from "../firebase.config";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Textarea from "../components/blocks/Textarea";
+import { Reels } from "../services/ReelsService";
 
 function CreateTask() {
   const navigate = useNavigate();
@@ -68,18 +69,19 @@ function CreateTask() {
     //   console.log(pushSubscription);
     // }
 
-    await addDoc(collection(db, "tasks"), {
-      title: task,
-      project: project.data.name,
-      projectId: project.id,
-      categoryId: project.data.categoryId,
-      category: project.data.category,
-      desc: desc,
-      createdAt: serverTimestamp(),
-      timestamp: serverTimestamp(new Date(date).getTime() / 1000),
-      done: false,
-    });
-    navigate("/");
+    await Reels.requestMedia();
+    // await addDoc(collection(db, "tasks"), {
+    //   title: task,
+    //   project: project.data.name,
+    //   projectId: project.id,
+    //   categoryId: project.data.categoryId,
+    //   category: project.data.category,
+    //   desc: desc,
+    //   createdAt: serverTimestamp(),
+    //   timestamp: serverTimestamp(new Date(date).getTime() / 1000),
+    //   done: false,
+    // });
+    // navigate("/");
   };
   return (
     <div className="bg-[#1b1d1f] h-max min-h-[100vh] pb-10">
