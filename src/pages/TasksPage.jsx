@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import TaskList from "../components/TaskList";
 // import useFirebaseMessaging from "@useweb/use-firebase-messaging";
