@@ -1,4 +1,5 @@
-import { REACT_APP_ACCESS_TOKEN, REACT_APP_USER_ID } from "../config";
+const { REACT_APP_ACCESS_TOKEN, REACT_APP_USER_ID } = process.env;
+
 class ReelsService {
   requestHash = async () => {
     return fetch(
