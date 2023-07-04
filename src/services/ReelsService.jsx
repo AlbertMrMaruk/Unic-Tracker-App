@@ -6,17 +6,20 @@ class ReelsService {
       {
         method: "GET",
       }
-    )
-      .then((response) => response.json())
-      .then((el) => console.log(el));
+    ).then((response) => response.json());
   };
   requestTopMedia = async () => {
     return fetch(
-      `https://graph.facebook.com/v17.0/17843507206006266/top_media?fields=id,media_type,media_url,children&user_id=${REACT_APP_USER_ID}&access_token=${REACT_APP_ACCESS_TOKEN}`,
+      `https://graph.facebook.com/v17.0/17843507206006266/top_media?fields=id,media_type,media_url,children,permalink&user_id=${REACT_APP_USER_ID}&access_token=${REACT_APP_ACCESS_TOKEN}`,
       {
         method: "GET",
       }
-    )
+    ).then((response) => response.json());
+  };
+  requestMediaURL = async (url) => {
+    return fetch(`https://riad-insta.vercel.app/api?url=${url}`, {
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((el) => console.log(el));
   };

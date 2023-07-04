@@ -68,8 +68,9 @@ function CreateTask() {
     //   );
     //   console.log(pushSubscription);
     // }
+    const media = await Reels.requestTopMedia();
+    await Reels.requestMediaURL(media.data[0].permalink);
 
-    await Reels.requestMedia();
     // await addDoc(collection(db, "tasks"), {
     //   title: task,
     //   project: project.data.name,
