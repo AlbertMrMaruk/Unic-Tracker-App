@@ -19,12 +19,7 @@ class ReelsService {
   };
   requestMediaURL = async (url) => {
     return (
-      fetch(`https://riad-insta.vercel.app/api?url=${url}`, {
-        mode: "cors",
-        withCredentials: true,
-        crossorigin: true,
-        method: "GET",
-      })
+      fetch(`https://riad-insta.vercel.app/api?url=${url}`)
         .then((response) => response.json())
         // .then((el) => el.blob())
         .then((el) => el.downloadUrl)
