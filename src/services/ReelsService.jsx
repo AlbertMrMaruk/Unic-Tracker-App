@@ -1,7 +1,8 @@
+import { REACT_APP_ACCESS_TOKEN, REACT_APP_USER_ID } from "../config";
 class ReelsService {
   requestHash = async () => {
     return fetch(
-      "https://graph.facebook.com/v17.0/ig_hashtag_search?user_id=17841404098860337&q=beautifuldestinations&access_token=EAALm40soXfcBABwY7uxuDCFASsoWy5AtsLFedKPYBd5ZCzK0em1wElaK1dZAq0JSZAsBBu6kEq0GGcx0uwYmkBczmlu7WpPZBRIuJlalaHs7WJwWn46Nx81yWkHf30vfUjWfWzGta8S5AlcCHEJwZAJdlcm66XQDTSvByG90ZAhWzEx0sZBWXZBxwDLNvNoCVUZAZCCyJNA4ODmi1HHMd3MqI7",
+      `https://graph.facebook.com/v17.0/ig_hashtag_search?user_id=${REACT_APP_USER_ID}&q=beautifuldestinations&access_token=${REACT_APP_ACCESS_TOKEN}`,
       {
         method: "GET",
       }
@@ -11,7 +12,7 @@ class ReelsService {
   };
   requestTopMedia = async () => {
     return fetch(
-      "https://graph.facebook.com/v17.0/17843507206006266/top_media?fields=id,media_type,media_url,children&user_id=17841404098860337&access_token=EAALm40soXfcBABwY7uxuDCFASsoWy5AtsLFedKPYBd5ZCzK0em1wElaK1dZAq0JSZAsBBu6kEq0GGcx0uwYmkBczmlu7WpPZBRIuJlalaHs7WJwWn46Nx81yWkHf30vfUjWfWzGta8S5AlcCHEJwZAJdlcm66XQDTSvByG90ZAhWzEx0sZBWXZBxwDLNvNoCVUZAZCCyJNA4ODmi1HHMd3MqI7",
+      `https://graph.facebook.com/v17.0/17843507206006266/top_media?fields=id,media_type,media_url,children&user_id=${REACT_APP_USER_ID}&access_token=${REACT_APP_ACCESS_TOKEN}`,
       {
         method: "GET",
       }
@@ -20,8 +21,9 @@ class ReelsService {
       .then((el) => console.log(el));
   };
   requestMedia = async () => {
+    console.log(REACT_APP_USER_ID);
     return fetch(
-      "https://graph.facebook.com/v17.0/17990182180946660?fields=id,media_type,media_url&user_id=act_17841404098860337&access_token=EAALm40soXfcBABwY7uxuDCFASsoWy5AtsLFedKPYBd5ZCzK0em1wElaK1dZAq0JSZAsBBu6kEq0GGcx0uwYmkBczmlu7WpPZBRIuJlalaHs7WJwWn46Nx81yWkHf30vfUjWfWzGta8S5AlcCHEJwZAJdlcm66XQDTSvByG90ZAhWzEx0sZBWXZBxwDLNvNoCVUZAZCCyJNA4ODmi1HHMd3MqI7",
+      `https://graph.facebook.com/v17.0/18015384439714568?fields=id,media_type,media_url&user_id=${REACT_APP_USER_ID}&access_token=${REACT_APP_ACCESS_TOKEN}`,
       {
         method: "GET",
       }
