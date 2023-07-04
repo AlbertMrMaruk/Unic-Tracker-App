@@ -18,11 +18,17 @@ class ReelsService {
     ).then((response) => response.json());
   };
   requestMediaURL = async (url) => {
-    return fetch(`https://riad-insta.vercel.app/api?url=${url}`, {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((el) => console.log(el));
+    return (
+      fetch(`https://riad-insta.vercel.app/api?url=${url}`, {
+        mode: "cors",
+        withCredentials: true,
+        crossorigin: true,
+        method: "GET",
+      })
+        .then((response) => response.json())
+        // .then((el) => el.blob())
+        .then((el) => el.downloadUrl)
+    );
   };
   requestMedia = async () => {
     console.log(REACT_APP_USER_ID);

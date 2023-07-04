@@ -26,6 +26,8 @@ function CreateTask() {
   const [project, setProject] = useState({});
   const [date, setDate] = useState(new Date());
   const [desc, setDesc] = useState("");
+  const [videos, setVideos] = useState("");
+  const [hidden, setHidden] = useState(true);
   const [task, setTask] = useState("");
   // const [, setPermissionState] = useState(PERMISSION_STATES.UNKNOWN);
   useEffect(() => {
@@ -69,8 +71,24 @@ function CreateTask() {
     //   console.log(pushSubscription);
     // }
     const media = await Reels.requestTopMedia();
-    await Reels.requestMediaURL(media.data[0].permalink);
-
+    const list = [];
+    for (const el of media.data.slice(10, 20)) {
+      if (el.media_type === "IMAGE") {
+        list.push({ type: "img", src: el.media_url });
+      } else {
+        const src = await Reels.requestMediaURL(el.permalink);
+        src &&
+          list.push({
+            type: "video",
+            src,
+          });
+      }
+    }
+    console.log(list);
+    setVideos(list);
+    setHidden(false);
+    //media.data[0].permalink
+    //https://www.instagram.com/p/CuPl6mSNng4/
     // await addDoc(collection(db, "tasks"), {
     //   title: task,
     //   project: project.data.name,
@@ -86,12 +104,40 @@ function CreateTask() {
   };
   return (
     <div className="bg-[#1b1d1f] h-max min-h-[100vh] pb-10">
+      {hidden || (
+        <div
+          className="bg-[#000000b4] w-full h-full absolute z-50"
+          onClick={() => setHidden(true)}
+        >
+          {videos.map((el) =>
+            el.type === "img" ? (
+              <img
+                src={el.src}
+                alt="Photo from Instagram"
+                className="mt-10  z-50 m-auto"
+                width={500}
+                height={500}
+              />
+            ) : (
+              <video
+                src={el.src}
+                className="mt-10  z-50 m-auto"
+                width={500}
+                height={500}
+                controls
+              ></video>
+            )
+          )}
+        </div>
+      )}
       <Navbar />
+
       <div className="static rounded-2xl bg-[#2c2e30] pt-6 px-3 pb-10 w-[55%] m-auto mt-7  shadow-xl shadow-[#00000047] ">
         <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[9.25rem] left-[36rem] text-black flex gap-3 ">
           <FaRegCheckSquare className="my-auto text-lg" />
           New Task
         </div>
+
         <Field
           icon={
             <FaRegCheckSquare className="text-[#38dbe0] text-4xl my-auto" />
