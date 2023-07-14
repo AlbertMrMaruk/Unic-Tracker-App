@@ -24,6 +24,9 @@
     "eject": "react-scripts eject",
     "esbuild": "esbuild src/sw.js  --outdir=public --bundle --sourcemap --minify --format=esm --legal-comments=external"
   },
+  "browser": {
+    "assert": false
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

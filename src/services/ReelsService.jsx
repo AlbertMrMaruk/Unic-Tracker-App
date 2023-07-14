@@ -1,5 +1,14 @@
+// import Instagram from "instagram-web-api";
+// import { FileCookieStore } from "tough-cookie-filestore2";
 const { REACT_APP_ACCESS_TOKEN, REACT_APP_USER_ID } = process.env;
 
+// Packages
+
+// console.log(Instagram);
+// const { username, password } = process.env; // Only required when no cookies are stored yet
+
+// const cookieStore = new FileCookieStore("./cookies.json");
+// const client = new Instagram({ username, password, cookieStore });
 class ReelsService {
   requestHash = async () => {
     return fetch(
