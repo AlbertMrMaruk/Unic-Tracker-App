@@ -20,7 +20,7 @@ function TasksPage() {
   const loadReels = async () => {
     const media = await Reels.requestTopMedia();
     const list = [];
-    for (const el of media.data.slice(10, 20)) {
+    for (const el of media.data.slice(1, 3)) {
       if (el.media_type === "IMAGE") {
         list.push({ type: "img", src: el.media_url });
       } else {

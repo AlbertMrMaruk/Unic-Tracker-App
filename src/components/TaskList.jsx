@@ -45,7 +45,7 @@ function TaskList({ setDoneInf, doneInf, isDone }) {
   }, [doneInf]);
 
   return (
-    <main className="flex  flex-col gap-6 px-[5rem]">
+    <main className="flex  flex-col gap-6 px-[1.5rem] md:px-[5rem]">
       {tasks &&
         tasks.map((el, index) => (
           <Task

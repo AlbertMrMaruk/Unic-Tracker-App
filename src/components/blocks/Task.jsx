@@ -23,7 +23,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
           isDark ? " bg-[#383a39]" : "bg-[#2fc7cd] "
         } rounded-t-xl flex justify-between w-[100%] py-3 px-7`}
       >
-        <div className="ml-[3.5rem]">
+        <div className="m-auto text-center md:text-left md:ml-[3.5rem] ">
           <h4
             className={`font-bold  text-uppercase text-xl ${
               isDark && "text-[#8e897b]"
@@ -39,7 +39,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
             {task.project}
           </h2>
         </div>
-        <div className="flex gap-5">
+        <div className=" gap-5 hidden md:flex">
           <FaPlus
             className={`my-5 text-xl cursor-pointer ${
               isDark && "text-[#8e897b]"
@@ -53,8 +53,8 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
           />
         </div>
       </div>
-      <div className="px-7 py-5 rounded-b-xl flex justify-between align-middle m-auto">
-        <div className="flex gap-3 align-middle">
+      <div className="py-[2rem] px-[1rem]  rounded-b-xl flex flex-col justify-between align-middle m-auto md:px-7 md:py-5 md:flex-row">
+        <div className="flex gap-3 align-middle flex-col md:flex-row">
           <input
             type="checkbox"
             className={`appearance-none cursor-pointer  border-[2.5px] rounded-md m-auto border-solid w-[35px] h-[35px]  ${
@@ -71,17 +71,23 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
             <h2
               className={`font-bold  text-uppercase text-[1.4rem] ${
                 isDark && "text-white"
-              }`}
+              } text-center md:text-left`}
             >
               {task.title}
             </h2>
-            <p className={`text-md ${isDark && "text-[#8e897b]"}`}>
+            <p
+              className={`text-lg ${
+                isDark && "text-[#8e897b]"
+              } text-center   font-bold my-3 md:text-left md:my-0 md:text-md`}
+            >
               {task.desc}
             </p>
           </div>
         </div>
         <p
-          className={`text-lg my-auto font-bold ${isDark && "text-[#8e897b]"}`}
+          className={`text-lg my-auto font-bold ${
+            isDark && "text-[#8e897b]"
+          } text-center my-2 md:text-left md:my-auto`}
         >
           {data.toLocaleDateString("default", {
             day: "2-digit",
