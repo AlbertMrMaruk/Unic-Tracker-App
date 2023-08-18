@@ -4,6 +4,7 @@ import CreateCategory from "./pages/CreateCategory";
 import CreateProject from "./pages/CreateProject";
 import CreateTask from "./pages/CreateTask";
 import TasksPage from "./pages/TasksPage";
+import SignIn from "./pages/SignIn";
 // import Firebase from "./components/Firebase";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/create-category" element={<CreateCategory />} />
         <Route path="/create-project" element={<CreateProject />} />
         <Route path="/create-task" element={<CreateTask />} />
+        <Route path="/sign-in" element={<SignIn />} />
       </Routes>
     </Router>
     // </Firebase>
