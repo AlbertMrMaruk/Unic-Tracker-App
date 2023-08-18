@@ -8,6 +8,7 @@ function TasksPage() {
   const [doneInf, setDoneInf] = useState({});
   const [videos, setVideos] = useState("");
   const [hidden, setHidden] = useState(true);
+
   //   const firebaseMessaging = useFirebaseMessaging({
   //     onMessage: (message) => {
   //       console.log(`Received foreground message`, message);
