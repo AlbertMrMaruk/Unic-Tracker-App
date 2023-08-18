@@ -19,7 +19,7 @@ function CreateCategory() {
     <div className="bg-[#1b1d1f] h-screen">
       <Navbar />
       <div className="static rounded-2xl bg-[#2c2e30] pt-6 px-3 pb-10 w-[90%] md:w-[55%] m-auto mt-7  shadow-xl shadow-[#00000047] ">
-        <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[9.25rem] left-[34.25rem] text-black flex gap-3 ">
+        <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[6.75rem] left-[50%] ml-[-87.5px] md:top-[9.25rem]  text-black flex gap-3 ">
           <FaObjectGroup className="my-auto text-lg" />
           New Category
         </div>
@@ -30,7 +30,7 @@ function CreateCategory() {
           text={category}
         ></Field>
         <div
-          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full left-[11rem] top-[15.5rem] md:left-[35.5rem] md:top-[18rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full left-[50%] ml-[-77.85px] top-[15.5rem] md:top-[18rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
           onClick={addCategory}
         >
           <FaBullseye className="my-auto text-2xl" />

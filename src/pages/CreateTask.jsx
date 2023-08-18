@@ -88,7 +88,7 @@ function CreateTask() {
       <Navbar />
 
       <div className="static rounded-2xl bg-[#2c2e30] pt-6 px-3 pb-10 w-[90%] md:w-[55%] m-auto mt-7  shadow-xl shadow-[#00000047] ">
-        <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[9.25rem] left-[36rem] text-black flex gap-3 ">
+        <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[6.75rem] left-[50%] ml-[-67.91px] md:top-[9.25rem]  text-black flex gap-3 ">
           <FaRegCheckSquare className="my-auto text-lg" />
           New Task
         </div>
@@ -119,7 +119,7 @@ function CreateTask() {
         ></Field>
         <Textarea text={desc} setText={setDesc}></Textarea>
         <div
-          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[32.5rem] left-[11rem]  md:top-[35rem] md:left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[32.5rem] left-[50%] ml-[-77.85px]   md:top-[35rem]  cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
           onClick={addTask}
         >
           <FaBullseye className="my-auto text-2xl" />
