@@ -139,10 +139,10 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
       <div
         className={`w-[30%] bg-red-600 text-white ${
           deleteBar ? "" : "hidden"
-        } h-auto ml-[1rem] rounded-2xl shadow-xl shadow-[#00000047]`}
+        } h-auto ml-[1rem] rounded-2xl shadow-xl pt-30%] shadow-[#00000047]`}
       >
         <FaTrash
-          className={`m-auto mt-[8rem]  text-3xl cursor-pointer`}
+          className={`m-auto   text-3xl cursor-pointer`}
           onClick={deleteTask}
         />
       </div>
