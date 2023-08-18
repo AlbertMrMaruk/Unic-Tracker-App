@@ -139,7 +139,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
       <div
         className={`w-[30%] bg-red-600 text-white ${
           deleteBar ? "mr-[0] visible" : "mr-[-8rem] invisible "
-        }  ease-in-out duration-300 h-auto ml-[1rem] rounded-2xl shadow-xl pt-[30%] shadow-[#00000047]`}
+        }  flex align-middle  justify-center ease-in-out duration-300 h-auto ml-[1rem] rounded-2xl shadow-xl  shadow-[#00000047] md:hidden`}
       >
         <FaTrash
           className={`m-auto   text-3xl cursor-pointer`}
