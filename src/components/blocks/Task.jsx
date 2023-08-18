@@ -10,6 +10,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
   };
   const deleteTask = async () => {
     await deleteDoc(doc(db, "tasks", id));
+    setDeleteBar(false);
     setDoneInf((doneI) => ({ ...doneI, [id]: "deleted" }));
   };
   const [touchPosition, setTouchPosition] = useState(true);
