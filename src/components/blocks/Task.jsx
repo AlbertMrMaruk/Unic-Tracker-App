@@ -142,9 +142,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
         } h-auto ml-[1rem] rounded-2xl shadow-xl shadow-[#00000047]`}
       >
         <FaTrash
-          className={`m-auto mt-[8rem]  text-3xl cursor-pointer ${
-            isDark && "text-[#8e897b]"
-          }`}
+          className={`m-auto mt-[8rem]  text-3xl cursor-pointer`}
           onClick={deleteTask}
         />
       </div>
