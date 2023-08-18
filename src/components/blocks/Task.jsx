@@ -51,7 +51,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
           isDark ? "bg-[#242527]" : "bg-[#38dbe0] text-black"
         }  ${
           deleteBar ? "ml-[-6rem]" : ""
-        } rounded-2xl shadow-xl shadow-[#00000047]`}
+        } ease-in-out duration-300 rounded-2xl shadow-xl shadow-[#00000047]`}
       >
         <div
           className={`${
@@ -88,7 +88,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
             />
           </div>
         </div>
-        <div className="py-[2rem] px-[1rem]  rounded-b-xl flex flex-col justify-between align-middle m-auto md:px-7 md:py-5 md:flex-row">
+        <div className="py-[2rem] px-[1rem]  rounded-b-xl flex flex-col justify-between align-middle m-auto md:px-7 md:py-5 md:flex-row ">
           <div className="flex gap-3 align-middle flex-col md:flex-row">
             <input
               type="checkbox"
@@ -138,8 +138,8 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
       </div>
       <div
         className={`w-[30%] bg-red-600 text-white ${
-          deleteBar ? "" : "hidden"
-        } h-auto ml-[1rem] rounded-2xl shadow-xl pt-30%] shadow-[#00000047]`}
+          deleteBar ? "mr-[0]" : "mr-[-6rem] hidden "
+        } ease-in-out duration-300 h-auto ml-[1rem] rounded-2xl shadow-xl pt-[30%] shadow-[#00000047]`}
       >
         <FaTrash
           className={`m-auto   text-3xl cursor-pointer`}
