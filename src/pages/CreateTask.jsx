@@ -119,7 +119,7 @@ function CreateTask() {
         ></Field>
         <Textarea text={desc} setText={setDesc}></Textarea>
         <div
-          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full  md:top-[35rem] md:left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full top-[32.5rem] left-[11rem]  md:top-[35rem] md:left-[35.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
           onClick={addTask}
         >
           <FaBullseye className="my-auto text-2xl" />
