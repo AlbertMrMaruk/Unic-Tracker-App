@@ -135,7 +135,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
       </div>
       <div
         className={`w-[30%] bg-red-600 text-white ${
-          deleteBar ? "mr-[0] visible" : "mr-[-8rem] invisible "
+          deleteBar ? "mr-[0] visible" : "mr-[-9rem] invisible "
         }  flex align-middle  justify-center ease-in-out duration-300 h-auto ml-[1rem] rounded-2xl shadow-xl  shadow-[#00000047] md:hidden`}
       >
         <FaTrash
