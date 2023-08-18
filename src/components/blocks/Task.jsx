@@ -50,7 +50,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
         className={`w-[100%] ${
           isDark ? "bg-[#242527]" : "bg-[#38dbe0] text-black"
         }  ${
-          deleteBar ? "ml-[-6rem]" : ""
+          deleteBar ? "ml-[-8rem]" : ""
         } ease-in-out duration-300 rounded-2xl shadow-xl shadow-[#00000047]`}
       >
         <div
@@ -138,8 +138,8 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
       </div>
       <div
         className={`w-[30%] bg-red-600 text-white ${
-          deleteBar ? "mr-[0]" : "mr-[-6rem] hidden "
-        } ease-in-out duration-300 h-auto ml-[1rem] rounded-2xl shadow-xl pt-[30%] shadow-[#00000047]`}
+          deleteBar ? "mr-[0] visible" : "mr-[-8rem] invisible "
+        }  ease-in-out duration-300 h-auto ml-[1rem] rounded-2xl shadow-xl pt-[30%] shadow-[#00000047]`}
       >
         <FaTrash
           className={`m-auto   text-3xl cursor-pointer`}
