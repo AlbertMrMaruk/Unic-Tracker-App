@@ -17,12 +17,10 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
   const [deleteBar, setDeleteBar] = useState(false);
   const handleStart = (e) => {
     const touchDown = e.touches[0].clientX;
-    console.log("START");
     setTouchPosition(touchDown);
   };
   const handleTouchMove = (e) => {
     const touchDown = touchPosition;
-    console.log("end");
     if (touchDown === null) {
       return;
     }
@@ -31,13 +29,11 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
     const diff = touchDown - currentTouch;
 
     if (diff > 5) {
-      console.log("swipe to left");
       setDeleteBar(true);
     }
 
     if (diff < -5) {
       setDeleteBar(false);
-      console.log("swipe to right");
     }
 
     setTouchPosition(null);
