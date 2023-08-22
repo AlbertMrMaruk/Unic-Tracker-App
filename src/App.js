@@ -6,6 +6,7 @@ import CreateTask from "./pages/CreateTask";
 import TasksPage from "./pages/TasksPage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Profile from "./pages/Profile";
 // import Firebase from "./components/Firebase";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/create-task" element={<CreateTask />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
     // </Firebase>

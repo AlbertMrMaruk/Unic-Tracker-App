@@ -1,9 +1,10 @@
 import logo from "../assets/output-onlinepngtools (8).png";
 import avatar from "../assets/DCA6ABF9-EE3C-4E5C-84DD-455071481FB3_1_102_o.jpeg";
 import { FaSearch, FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <div
       className="navbar
@@ -40,10 +41,12 @@ function Navbar() {
               <p className="text-lg font-[900]">CREATE</p>
             </div>
           </Link>
+
           <img
             src={avatar}
             className="cursor-pointer rounded-full w-[50px]"
             alt="Avatar"
+            onClick={() => navigate("/profile")}
           />
         </div>
       </div>
