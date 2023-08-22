@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import TaskList from "../components/TaskList";
 import { Reels } from "../services/ReelsService";
+import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 // import useFirebaseMessaging from "@useweb/use-firebase-messaging";
 
 function TasksPage() {
   const [doneInf, setDoneInf] = useState({});
   const [videos, setVideos] = useState("");
   const [hidden, setHidden] = useState(true);
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
+  useEffect(() => {
+    if (auth.currentUser) {
+      setUser(auth.currentUser);
+    } else {
+      navigate("/sign-in");
+    }
+  }, []);
 
   //   const firebaseMessaging = useFirebaseMessaging({
   //     onMessage: (message) => {
