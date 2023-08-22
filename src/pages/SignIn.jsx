@@ -3,7 +3,7 @@ import { FaBullseye, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Field from "../components/blocks/Field";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignIn() {
   const [formData, setFormData] = useState({
@@ -53,6 +53,11 @@ function SignIn() {
           <FaBullseye className="my-auto text-2xl" />
           Sign In
         </div>
+      </div>
+      <div className=" text-center mt-9 font-bold cursor-pointer md:mt-14 ">
+        <Link to="/sign-up" className="  text-[#1ad6dd]">
+          Create new account
+        </Link>
       </div>
     </div>
   );

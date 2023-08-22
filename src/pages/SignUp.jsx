@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import { FaBullseye, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -69,12 +70,17 @@ function SignUp() {
           text={password}
         ></Field>
         <div
-          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full left-[50%] ml-[-61.85px] top-[24rem] md:top-[26.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full left-[50%] ml-[-65px] top-[24rem] md:top-[26.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
           onClick={onSubmit}
         >
           <FaBullseye className="my-auto text-2xl" />
           Sign Up
         </div>
+      </div>
+      <div className=" text-center mt-9 font-bold cursor-pointer md:mt-12 ">
+        <Link to="/sign-in" className="  text-[#1ad6dd]">
+          Log in to existed
+        </Link>
       </div>
     </div>
   );
