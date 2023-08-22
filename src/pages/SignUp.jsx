@@ -1,31 +1,47 @@
 import Navbar from "../components/Navbar";
 import { FaBullseye, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
-import Field from "../components/blocks/Field";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { db } from "../firebase.config";
+import Field from "../components/blocks/Field";
 
-function SignIn() {
+function SignUp() {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
   });
-  const { email, password } = formData;
+  const navigate = useNavigate("");
+
+  const { name, email, password } = formData;
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       const auth = getAuth();
-      const userCreds = await signInWithEmailAndPassword(auth, email, password);
-      if (userCreds.user) {
-        navigate("/");
-      }
+      const userCreds = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCreds.user;
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+      formDataCopy.timestamp = serverTimestamp();
+      await setDoc(doc(db, "users", user.uid), formDataCopy);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
-
-  const navigate = useNavigate();
-
   return (
     <div className="bg-[#1b1d1f] h-screen">
       <Navbar />
@@ -34,6 +50,12 @@ function SignIn() {
           <FaUser className="my-auto text-lg" />
           Profile
         </div>
+        <Field
+          icon={<FaUser className="text-[#38dbe0] text-4xl my-auto" />}
+          placeholder={"Name"}
+          setText={(e) => setFormData({ ...formData, name: e })}
+          text={name}
+        ></Field>
         <Field
           icon={<FaEnvelope className="text-[#38dbe0] text-4xl my-auto" />}
           placeholder={"Email"}
@@ -47,15 +69,15 @@ function SignIn() {
           text={password}
         ></Field>
         <div
-          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full left-[50%] ml-[-61.85px] top-[19.5rem] md:top-[22.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
+          className="absolute bg-[#38dbe0] py-3  text-md uppercase font-bold px-4 rounded-full left-[50%] ml-[-61.85px] top-[24rem] md:top-[26.5rem] cursor-pointer text-black flex gap-2 hover:scale-110 duration-100 ease-in "
           onClick={onSubmit}
         >
           <FaBullseye className="my-auto text-2xl" />
-          Sign In
+          Sign Up
         </div>
       </div>
     </div>
   );
 }
 
-export default SignIn;
+export default SignUp;
