@@ -18,6 +18,8 @@ function CreatePage() {
     } else {
       navigate("/sign-in");
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="bg-[#1b1d1f] h-max min-h-[100vh] pb-10">

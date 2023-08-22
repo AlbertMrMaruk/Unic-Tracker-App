@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
-import { FaBullseye, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
-import { setDoc, doc, serverTimestamp } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { FaEnvelope, FaUser } from "react-icons/fa";
+// import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import Field from "../components/blocks/Field";
 function Profile() {
   const [user, setUser] = useState({ email: "", displayName: "" });
@@ -18,6 +18,8 @@ function Profile() {
     } else {
       navigate("/sign-in");
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

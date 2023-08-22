@@ -47,6 +47,8 @@ function CreateTask() {
       setProject(projectsArr[0]);
     };
     getProjects();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const addTask = async () => {
     // await Notification.requestPermission().then((perm) => {

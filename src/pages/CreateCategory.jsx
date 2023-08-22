@@ -19,6 +19,8 @@ function CreateCategory() {
     } else {
       navigate("/sign-in");
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const addCategory = async () => {
     await addDoc(collection(db, "categories"), {

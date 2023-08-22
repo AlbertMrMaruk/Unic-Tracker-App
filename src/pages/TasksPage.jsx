@@ -19,6 +19,8 @@ function TasksPage() {
     } else {
       navigate("/sign-in");
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //   const firebaseMessaging = useFirebaseMessaging({

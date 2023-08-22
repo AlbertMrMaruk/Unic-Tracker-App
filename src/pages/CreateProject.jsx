@@ -30,6 +30,8 @@ function CreateProject() {
       setCategory(categoriesArr[0]);
     };
     getCategories();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const [project, setProject] = useState("");
   const addProject = async () => {
