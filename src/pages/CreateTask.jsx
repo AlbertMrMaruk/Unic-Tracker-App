@@ -4,6 +4,7 @@ import {
   FaBullseye,
   FaCalendarCheck,
 } from "react-icons/fa";
+import { getAuth } from "firebase/auth";
 // import logo from "../assets/output-onlinepngtools (8) — копия.png";
 // import { askForNotif, PERMISSION_STATES, subscribeUserToPush } from "../utils";
 import Navbar from "../components/Navbar";
@@ -26,8 +27,16 @@ function CreateTask() {
   const [date, setDate] = useState(new Date());
   const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
+
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
   // const [, setPermissionState] = useState(PERMISSION_STATES.UNKNOWN);
   useEffect(() => {
+    if (auth.currentUser) {
+      setUser(auth.currentUser);
+    } else {
+      navigate("/sign-in");
+    }
     const getProjects = async () => {
       const projectsSnap = await getDocs(collection(db, "projects"));
       const projectsArr = [];
@@ -85,7 +94,7 @@ function CreateTask() {
   };
   return (
     <div className="bg-[#1b1d1f] h-max min-h-[100vh] pb-10">
-      <Navbar />
+      <Navbar user={user} />
 
       <div className="static rounded-2xl bg-[#2c2e30] pt-6 px-3 pb-10 w-[90%] md:w-[55%] m-auto mt-7  shadow-xl shadow-[#00000047] ">
         <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[6.75rem] left-[50%] ml-[-67.91px] md:top-[9.25rem]  text-black flex gap-3 ">

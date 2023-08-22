@@ -77,7 +77,7 @@ function TasksPage() {
           )}
         </div>
       )}
-      <Navbar />
+      <Navbar user={user} />
       <TaskList isDone={false} doneInf={doneInf} setDoneInf={setDoneInf} />
       <h2
         className="text-4xl my-10 font-bold text-white text-center"

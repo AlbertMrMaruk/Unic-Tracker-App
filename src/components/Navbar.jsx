@@ -1,9 +1,10 @@
 import logo from "../assets/output-onlinepngtools (8).png";
+import noAvatar from "../assets/no_foto.jpg";
 import avatar from "../assets/DCA6ABF9-EE3C-4E5C-84DD-455071481FB3_1_102_o.jpeg";
 import { FaSearch, FaPlus } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ user }) {
   const navigate = useNavigate();
   return (
     <div
@@ -43,7 +44,7 @@ function Navbar() {
           </Link>
 
           <img
-            src={avatar}
+            src={user?.displayName === "Albert" ? avatar : noAvatar}
             className="cursor-pointer rounded-full w-[50px]"
             alt="Avatar"
             onClick={() => navigate("/profile")}
