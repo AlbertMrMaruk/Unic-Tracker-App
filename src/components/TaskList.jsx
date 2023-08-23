@@ -9,19 +9,23 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../firebase.config";
+import { getAuth } from "firebase/auth";
 
-function TaskList({ setDoneInf, doneInf, isDone }) {
+function TaskList({ setDoneInf, doneInf, isDone, user }) {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const getTasks = async () => {
       try {
         //Get a referee
+        const auth = getAuth();
         const docsRef = collection(db, "tasks");
         // Create a query
+        console.log(auth.currentUser?.uid);
         const q = query(
           docsRef,
           where("done", "==", isDone),
+          where("userId", "==", auth.currentUser?.uid),
           orderBy("timestamp", "desc"),
           limit(10)
         );
@@ -36,7 +40,7 @@ function TaskList({ setDoneInf, doneInf, isDone }) {
         });
         setTasks(tasksArr);
       } catch (error) {
-        console.error("Could not fetch tasks");
+        console.error("Could not fetch tasks", error);
       }
     };
     getTasks();

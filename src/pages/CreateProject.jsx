@@ -39,6 +39,8 @@ function CreateProject() {
       name: project,
       category: category.data.name,
       categoryId: category.id,
+
+      userId: user.uid,
     });
     navigate("/create-task");
   };

@@ -25,6 +25,7 @@ function CreateCategory() {
   const addCategory = async () => {
     await addDoc(collection(db, "categories"), {
       name: category,
+      userId: user.uid,
     });
     navigate("/create-project");
   };

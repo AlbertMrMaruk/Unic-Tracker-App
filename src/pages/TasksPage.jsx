@@ -16,6 +16,7 @@ function TasksPage() {
   useEffect(() => {
     if (auth.currentUser) {
       setUser(auth.currentUser);
+      console.log(auth.currentUser);
     } else {
       navigate("/sign-in");
     }
@@ -80,14 +81,24 @@ function TasksPage() {
         </div>
       )}
       <Navbar user={user} />
-      <TaskList isDone={false} doneInf={doneInf} setDoneInf={setDoneInf} />
+      <TaskList
+        isDone={false}
+        user={user}
+        doneInf={doneInf}
+        setDoneInf={setDoneInf}
+      />
       <h2
         className="text-4xl my-10 font-bold text-white text-center"
         onClick={loadReels}
       >
         Done Tasks
       </h2>
-      <TaskList isDone={true} doneInf={doneInf} setDoneInf={setDoneInf} />
+      <TaskList
+        isDone={true}
+        user={user}
+        doneInf={doneInf}
+        setDoneInf={setDoneInf}
+      />
     </div>
   );
 }

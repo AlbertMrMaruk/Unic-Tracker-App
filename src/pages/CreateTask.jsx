@@ -88,6 +88,7 @@ function CreateTask() {
       categoryId: project.data.categoryId,
       category: project.data.category,
       desc: desc,
+      userId: user.uid,
       createdAt: serverTimestamp(),
       timestamp: serverTimestamp(new Date(date).getTime() / 1000),
       done: false,
