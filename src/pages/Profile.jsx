@@ -18,10 +18,12 @@ function Profile() {
     } else {
       navigate("/sign-in");
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const onLogOut = () => {
+    auth.signOut();
+    navigate("/sign-in");
+  };
   return (
     <div className="bg-[#1b1d1f] h-screen">
       <Navbar user={user} />
@@ -48,11 +50,11 @@ function Profile() {
           Sign Up
         </div> */}
       </div>
-      {/* <div className=" text-center mt-9 font-bold cursor-pointer md:mt-12 ">
-        <Link to="/sign-in" className="  text-[#1ad6dd]">
-          Log in to existed
-        </Link>
-      </div> */}
+      <div className=" text-center mt-9 font-bold cursor-pointer md:mt-12 ">
+        <p onClick={onLogOut} className="  text-[#dd1a1a]">
+          Log out
+        </p>
+      </div>
     </div>
   );
 }
