@@ -27,7 +27,7 @@ function TaskList({ setDoneInf, doneInf, isDone, user }) {
           where("done", "==", isDone),
           where("userId", "==", auth.currentUser?.uid),
           orderBy("timestamp", "desc"),
-          limit(10)
+          limit(25)
         );
         //Execute a query
         const querySnap = await getDocs(q);
