@@ -40,7 +40,13 @@ function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
   };
   const data = new Date(task.timestamp.seconds * 1000);
   return miniTask ? (
-    <div className="py-[2rem] px-[1rem]   flex flex-col justify-between align-middle m-auto md:px-7 md:py-6 md:flex-row  border-b-[1px] border-b-black">
+    <div
+      onTouchStart={handleStart}
+      onTouchMove={handleTouchMove}
+      className={`py-[2rem] px-[1rem]   flex flex-col justify-between align-middle m-auto md:px-7 md:py-6 md:flex-row  border-b-[1px] border-b-black  ${
+        deleteBar ? "ml-[-8rem]" : ""
+      } `}
+    >
       <div className="flex gap-3 align-middle flex-col md:flex-row">
         <input
           type="checkbox"
@@ -71,21 +77,30 @@ function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
           </p>
         </div>
       </div>
-      <p
-        className={`text-lg my-auto font-bold ${
-          isDark && "text-[#8e897b]"
-        } text-center my-2 md:text-left md:my-auto`}
-      >
-        {data.toLocaleDateString("default", {
-          day: "2-digit",
-          month: "long",
-        }) +
-          "  " +
-          data.toLocaleTimeString("default", {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-      </p>
+
+      <div className=" gap-5 hidden md:flex align-middle  justify-center h-auto">
+        <p
+          className={`text-lg my-auto font-bold ${
+            isDark && "text-[#8e897b]"
+          } text-center md:text-left md:my-auto`}
+        >
+          {data.toLocaleDateString("default", {
+            day: "2-digit",
+            month: "long",
+          }) +
+            "  " +
+            data.toLocaleTimeString("default", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+        </p>
+        <FaTrash
+          className={`my-2 text-xl cursor-pointer ${
+            isDark && "text-[#8e897b]"
+          }`}
+          onClick={deleteTask}
+        />
+      </div>
     </div>
   ) : (
     <div className="flex w-[100%]">

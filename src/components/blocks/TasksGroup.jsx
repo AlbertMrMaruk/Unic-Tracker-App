@@ -6,40 +6,11 @@ import Task from "./Task";
 
 function TasksGroup({ tasks, id, setDoneInf, doneInf, isDark }) {
   console.log(tasks);
-  const [touchPosition, setTouchPosition] = useState(true);
-  const [deleteBar, setDeleteBar] = useState(false);
-  const handleStart = (e) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
-  };
-  const handleTouchMove = (e) => {
-    const touchDown = touchPosition;
-    if (touchDown === null) {
-      return;
-    }
-
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
-
-    if (diff > 5) {
-      setDeleteBar(true);
-    }
-
-    if (diff < -5) {
-      setDeleteBar(false);
-    }
-
-    setTouchPosition(null);
-  };
   return (
     <div className="flex w-[100%]">
       <div
-        onTouchStart={handleStart}
-        onTouchMove={handleTouchMove}
         className={`w-[100%] ${
           isDark ? "bg-[#242527]" : "bg-[#38dbe0] text-black"
-        }  ${
-          deleteBar ? "ml-[-8rem]" : ""
         } ease-in-out duration-300 rounded-2xl shadow-xl shadow-[#00000047]`}
       >
         <div
