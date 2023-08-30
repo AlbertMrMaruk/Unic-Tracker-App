@@ -3,7 +3,7 @@ import { updateDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase.config";
 import { useState } from "react";
 
-function Task({ task, id, setDoneInf, doneInf, isDark }) {
+function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
   const editTask = async (doneD) => {
     await updateDoc(doc(db, "tasks", id), { ...task, done: doneD });
     setDoneInf((doneI) => ({ ...doneI, [id]: doneD }));
@@ -39,7 +39,55 @@ function Task({ task, id, setDoneInf, doneInf, isDark }) {
     setTouchPosition(null);
   };
   const data = new Date(task.timestamp.seconds * 1000);
-  return (
+  return miniTask ? (
+    <div className="py-[2rem] px-[1rem]  rounded-b-xl flex flex-col justify-between align-middle m-auto md:px-7 md:py-5 md:flex-row ">
+      <div className="flex gap-3 align-middle flex-col md:flex-row">
+        <input
+          type="checkbox"
+          className={`appearance-none cursor-pointer  border-[2.5px] rounded-md m-auto border-solid w-[35px] h-[35px]  ${
+            isDark
+              ? "checked:bg-[#38dbe0] border-[#38dbe0] "
+              : "checked:bg-black border-black "
+          }`}
+          checked={doneInf[task.id] ?? task.done}
+          onChange={(e) => {
+            editTask(e.target.checked);
+          }}
+        />
+        <div className="ml-[.75rem]">
+          <h2
+            className={`font-bold  text-uppercase text-[1.4rem] ${
+              isDark && "text-white"
+            } text-center md:text-left`}
+          >
+            {task.title}
+          </h2>
+          <p
+            className={`text-lg ${
+              isDark && "text-[#8e897b]"
+            } text-center   font-bold my-3 md:text-left md:my-0 md:text-md`}
+          >
+            {task.desc}
+          </p>
+        </div>
+      </div>
+      <p
+        className={`text-lg my-auto font-bold ${
+          isDark && "text-[#8e897b]"
+        } text-center my-2 md:text-left md:my-auto`}
+      >
+        {data.toLocaleDateString("default", {
+          day: "2-digit",
+          month: "long",
+        }) +
+          "  " +
+          data.toLocaleTimeString("default", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+      </p>
+    </div>
+  ) : (
     <div className="flex w-[100%]">
       <div
         onTouchStart={handleStart}
