@@ -4,11 +4,13 @@ import TaskList from "../components/TaskList";
 import { Reels } from "../services/ReelsService";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../components/blocks/Spinner";
 // import useFirebaseMessaging from "@useweb/use-firebase-messaging";
 
 function TasksPage() {
   const [doneInf, setDoneInf] = useState({});
   const [videos, setVideos] = useState("");
+  const [spinner, setSpinner] = useState(true);
   const [hidden, setHidden] = useState(true);
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -48,7 +50,6 @@ function TasksPage() {
           });
       }
     }
-    console.log(list);
     setVideos(list);
     setHidden(false);
   };
@@ -80,24 +81,32 @@ function TasksPage() {
           )}
         </div>
       )}
-      <Navbar user={user} />
-      <TaskList
-        isDone={false}
-        user={user}
-        doneInf={doneInf}
-        setDoneInf={setDoneInf}
-      />
-      <h2
-        className="text-4xl my-10 font-bold text-white text-center"
-        onClick={loadReels}
-      >
-        Done Tasks
-      </h2>
+      {spinner ? (
+        <Spinner />
+      ) : (
+        <>
+          <Navbar user={user} />
+          <TaskList
+            isDone={false}
+            user={user}
+            doneInf={doneInf}
+            setDoneInf={setDoneInf}
+            setSpinner={setSpinner}
+          />
+          <h2
+            className="text-4xl my-10 font-bold text-white text-center"
+            onClick={loadReels}
+          >
+            Done Tasks
+          </h2>
+        </>
+      )}
       <TaskList
         isDone={true}
         user={user}
         doneInf={doneInf}
         setDoneInf={setDoneInf}
+        setSpinner={setSpinner}
       />
     </div>
   );

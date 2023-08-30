@@ -11,7 +11,7 @@ import {
 import { db } from "../firebase.config";
 import { getAuth } from "firebase/auth";
 
-function TaskList({ setDoneInf, doneInf, isDone, user }) {
+function TaskList({ setDoneInf, doneInf, isDone, user, setSpinner }) {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
@@ -38,6 +38,8 @@ function TaskList({ setDoneInf, doneInf, isDone, user }) {
             data: el.data(),
           });
         });
+        setSpinner(false);
+        console.log("ddd");
         setTasks(tasksArr);
       } catch (error) {
         console.error("Could not fetch tasks", error);
