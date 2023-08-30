@@ -4,7 +4,7 @@ import avatar from "../assets/DCA6ABF9-EE3C-4E5C-84DD-455071481FB3_1_102_o.jpeg"
 import { FaSearch, FaPlus } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({ user }) {
+function Navbar({ user, setTasksView }) {
   const navigate = useNavigate();
   return (
     <div
@@ -12,15 +12,27 @@ function Navbar({ user }) {
  bg-[#1b1d1f] px-[1.5rem] flex gap-2 w-100 justify-between align-top md:px-[5rem] py-6 text-center"
     >
       <div className="w-[33%] hidden md:block">
-        <div className=" flex   rounded-full w-[13rem]  text-lg py-1 bg-[#353535] text-white">
-          <span className="text-center  text-white px-3 py-1">
+        {/* <div className=" flex   rounded-full w-[13rem]  text-lg py-1 bg-[#353535] text-white"> */}
+        {/* <span className="text-center  text-white px-3 py-1">
             <FaSearch />
           </span>
           <input
             type="text"
             className="w-[9rem] active:border-none active:outline-none focus:outline-none bg-transparent "
-          />
-        </div>
+          /> */}
+        <button
+          className="text-white text-xl font-bold ml-2"
+          onClick={() => setTasksView("classic")}
+        >
+          Classic
+        </button>
+        <button
+          className="text-white text-xl font-bold ml-2"
+          onClick={() => setTasksView("group")}
+        >
+          Group
+        </button>
+        {/* </div> */}
       </div>
       <div className="w-[33%]">
         <Link to="/">

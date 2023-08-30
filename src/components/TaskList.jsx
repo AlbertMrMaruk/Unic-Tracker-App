@@ -12,7 +12,7 @@ import {
 import { db } from "../firebase.config";
 import { getAuth } from "firebase/auth";
 
-function TaskList({ setDoneInf, doneInf, isDone, user, setSpinner }) {
+function TaskList({ setDoneInf, doneInf, isDone, setSpinner, tasksView }) {
   const [tasks, setTasks] = useState([]);
   const [projects, setProjects] = useState();
   useEffect(() => {
@@ -52,9 +52,36 @@ function TaskList({ setDoneInf, doneInf, isDone, user, setSpinner }) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doneInf]);
-
+  console.log(tasksView);
   return (
     <main className="flex  flex-col gap-6 px-[1.5rem] md:px-[5rem] truncate  whitespace-pre-wrap">
+      {tasksView === "classic"
+        ? tasks &&
+          tasks.map((el, index) => {
+            return (
+              <Task
+                task={el.data}
+                setDoneInf={setDoneInf}
+                doneInf={doneInf}
+                id={el.id}
+                key={index}
+                isDark={index !== 0}
+              />
+            );
+          })
+        : projects &&
+          projects.map((id, index) => {
+            return (
+              <TasksGroup
+                tasks={tasks.filter((el) => el.data.projectId === id)}
+                setDoneInf={setDoneInf}
+                doneInf={doneInf}
+                id={id}
+                key={index}
+                isDark={index !== 0}
+              />
+            );
+          })}
       {/* {tasks &&
         tasks.map((el, index) => {
           return (
@@ -68,19 +95,6 @@ function TaskList({ setDoneInf, doneInf, isDone, user, setSpinner }) {
             />
           );
         })} */}
-      {projects &&
-        projects.map((id, index) => {
-          return (
-            <TasksGroup
-              tasks={tasks.filter((el) => el.data.projectId === id)}
-              setDoneInf={setDoneInf}
-              doneInf={doneInf}
-              id={id}
-              key={index}
-              isDark={index !== 0}
-            />
-          );
-        })}
     </main>
   );
 }
