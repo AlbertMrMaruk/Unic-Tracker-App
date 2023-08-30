@@ -4,8 +4,8 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "esbuild": "^0.18.10",
     "firebase": "9.23.0",
