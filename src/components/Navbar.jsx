@@ -1,7 +1,7 @@
 import logo from "../assets/output-onlinepngtools (8).png";
 import noAvatar from "../assets/no_foto.jpg";
 import avatar from "../assets/DCA6ABF9-EE3C-4E5C-84DD-455071481FB3_1_102_o.jpeg";
-import { FaSearch, FaPlus } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbar({ user, setTasksView }) {

@@ -1,10 +1,7 @@
-import { FaPlus, FaTrash } from "react-icons/fa";
-import { updateDoc, doc, deleteDoc } from "firebase/firestore";
-import { db } from "../../firebase.config";
-import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 import Task from "./Task";
 
-function TasksGroup({ tasks, id, setDoneInf, doneInf, isDark }) {
+function TasksGroup({ tasks, setDoneInf, doneInf, isDark }) {
   console.log(tasks);
   return (
     <div className="flex w-[100%]">
