@@ -40,7 +40,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
   };
   const data = new Date(task.timestamp.seconds * 1000);
   return miniTask ? (
-    <div className="py-[2rem] px-[1rem]  rounded-b-xl flex flex-col justify-between align-middle m-auto md:px-7 md:py-5 md:flex-row ">
+    <div className="py-[2rem] px-[1rem]   flex flex-col justify-between align-middle m-auto md:px-7 md:py-6 md:flex-row  border-b-[1px] border-b-black">
       <div className="flex gap-3 align-middle flex-col md:flex-row">
         <input
           type="checkbox"

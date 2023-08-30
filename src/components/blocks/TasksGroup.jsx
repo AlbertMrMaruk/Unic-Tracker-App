@@ -72,14 +72,17 @@ function TasksGroup({ tasks, id, setDoneInf, doneInf, isDark }) {
           </div>
         </div>
         {tasks.map((el, index) => (
-          <Task
-            miniTask={true}
-            task={el.data}
-            key={index}
-            setDoneInf={setDoneInf}
-            doneInf={doneInf}
-            isDark={isDark}
-          />
+          <>
+            <Task
+              id={el.id}
+              miniTask={true}
+              task={el.data}
+              key={index}
+              setDoneInf={setDoneInf}
+              doneInf={doneInf}
+              isDark={isDark}
+            />
+          </>
         ))}
       </div>
     </div>
