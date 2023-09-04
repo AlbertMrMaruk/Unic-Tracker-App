@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 import TaskList from "../components/TaskList";
 import { Reels } from "../services/ReelsService";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/blocks/Spinner";
+import TasksNavbar from "../components/TasksNavbar";
 // import useFirebaseMessaging from "@useweb/use-firebase-messaging";
 
 function TasksPage() {
@@ -86,7 +86,7 @@ function TasksPage() {
         <Spinner />
       ) : (
         <>
-          <Navbar
+          <TasksNavbar
             user={user}
             setTasksView={setTasksView}
             tasksView={tasksView}
