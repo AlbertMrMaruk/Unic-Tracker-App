@@ -10,7 +10,7 @@ import Spinner from "../components/blocks/Spinner";
 function TasksPage() {
   const [doneInf, setDoneInf] = useState({});
   const [videos, setVideos] = useState("");
-  const [tasksView, setTasksView] = useState("classis");
+  const [tasksView, setTasksView] = useState("classic");
   const [spinner, setSpinner] = useState(true);
   const [hidden, setHidden] = useState(true);
   const navigate = useNavigate();
@@ -86,7 +86,11 @@ function TasksPage() {
         <Spinner />
       ) : (
         <>
-          <Navbar user={user} setTasksView={setTasksView} />
+          <Navbar
+            user={user}
+            setTasksView={setTasksView}
+            tasksView={tasksView}
+          />
           <TaskList
             isDone={false}
             user={user}

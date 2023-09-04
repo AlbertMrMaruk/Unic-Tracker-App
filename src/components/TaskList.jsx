@@ -52,7 +52,6 @@ function TaskList({ setDoneInf, doneInf, isDone, setSpinner, tasksView }) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doneInf]);
-  console.log(tasksView);
   return (
     <main className="flex  flex-col gap-6 px-[1.5rem] md:px-[5rem] truncate  whitespace-pre-wrap">
       {tasksView === "classic"

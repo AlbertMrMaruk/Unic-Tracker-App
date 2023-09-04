@@ -1,17 +1,17 @@
 import logo from "../assets/output-onlinepngtools (8).png";
 import noAvatar from "../assets/no_foto.jpg";
 import avatar from "../assets/DCA6ABF9-EE3C-4E5C-84DD-455071481FB3_1_102_o.jpeg";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaListAlt, FaThList } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({ user, setTasksView }) {
+function Navbar({ user, setTasksView, tasksView }) {
   const navigate = useNavigate();
   return (
     <div
       className="navbar
  bg-[#1b1d1f] px-[1.5rem] flex gap-2 w-100 justify-between align-top md:px-[5rem] py-6 text-center"
     >
-      <div className="w-[33%] hidden md:block">
+      <div className="w-[33%] hidden  md:flex gap-5 justify-center">
         {/* <div className=" flex   rounded-full w-[13rem]  text-lg py-1 bg-[#353535] text-white"> */}
         {/* <span className="text-center  text-white px-3 py-1">
             <FaSearch />
@@ -21,15 +21,29 @@ function Navbar({ user, setTasksView }) {
             className="w-[9rem] active:border-none active:outline-none focus:outline-none bg-transparent "
           /> */}
         <button
-          className="text-white text-xl font-bold ml-2"
+          className={`${
+            tasksView === "classic" ? "text-white" : "text-[#d1cdc5]"
+          } text-xl font-bold `}
           onClick={() => setTasksView("classic")}
         >
+          <FaListAlt
+            className={`mx-auto  text-4xl mb-2 ${
+              tasksView === "classic" ? "text-[#38dbe0]" : "text-[#d1cdc5]"
+            }`}
+          />
           Classic
         </button>
         <button
-          className="text-white text-xl font-bold ml-2"
+          className={`${
+            tasksView === "group" ? "text-white" : "text-[#d1cdc5]"
+          } text-xl font-bold `}
           onClick={() => setTasksView("group")}
         >
+          <FaThList
+            className={`mx-auto  text-4xl mb-2 ${
+              tasksView === "group" ? "text-[#38dbe0]" : "text-[#d1cdc5]"
+            }`}
+          />
           Group
         </button>
         {/* </div> */}

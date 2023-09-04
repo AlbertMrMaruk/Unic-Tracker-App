@@ -2,7 +2,6 @@ import { FaPlus } from "react-icons/fa";
 import Task from "./Task";
 
 function TasksGroup({ tasks, setDoneInf, doneInf, isDark }) {
-  console.log(tasks);
   return (
     <div className="flex w-[100%]">
       <div
