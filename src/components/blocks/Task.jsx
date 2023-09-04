@@ -102,6 +102,12 @@ function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
           }`}
           onClick={deleteTask}
         />
+        <FaEdit
+          className={`my-2 text-xl cursor-pointer ${
+            isDark && "text-[#8e897b]"
+          }`}
+          onClick={() => navigate("/edit-task", { state: { id: id } })}
+        />
       </div>
     </div>
   ) : (
@@ -141,6 +147,7 @@ function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
               className={`my-5 text-xl cursor-pointer ${
                 isDark && "text-[#8e897b]"
               }`}
+              onClick={() => navigate("/create-task")}
             />
             <FaTrash
               className={`my-5 text-xl cursor-pointer ${

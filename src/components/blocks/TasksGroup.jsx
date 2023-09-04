@@ -1,7 +1,9 @@
 import { FaPlus } from "react-icons/fa";
 import Task from "./Task";
+import { useNavigate } from "react-router-dom";
 
 function TasksGroup({ tasks, setDoneInf, doneInf, isDark }) {
+  const navigate = useNavigate();
   return (
     <div className="flex w-[100%]">
       <div
@@ -35,6 +37,7 @@ function TasksGroup({ tasks, setDoneInf, doneInf, isDark }) {
               className={`my-5 text-xl cursor-pointer ${
                 isDark && "text-[#8e897b]"
               }`}
+              onClick={() => navigate("/create-task")}
             />
           </div>
         </div>
