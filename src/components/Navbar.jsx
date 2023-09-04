@@ -11,9 +11,9 @@ function Navbar({ user, setTasksView, tasksView }) {
       className="navbar
  bg-[#1b1d1f] px-[1.5rem] flex gap-2 w-100 justify-between  items-center md:px-[5rem] py-6 text-center"
     >
-      <div className="w-[33%] hidden  md:block ">
-        <div className=" flex  rounded-full w-[13rem]  text-lg py-1 bg-[#353535] text-white">
-          <span className="text-center  text-white px-3 py-1">
+      <div className="w-[33%] hidden ml-[2rem]  md:block ">
+        <div className=" flex  rounded-full w-[13rem]  text-lg  py-1 bg-[#353535] text-white">
+          <span className="text-center  text-white px-2 py-1">
             <FaSearch />
           </span>
           <input

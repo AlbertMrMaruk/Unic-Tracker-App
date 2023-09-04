@@ -1,6 +1,6 @@
 import { FaPlus } from "react-icons/fa";
-import Task from "./Task";
 import { useNavigate } from "react-router-dom";
+import MiniTask from "./MiniTask";
 
 function TasksGroup({ tasks, setDoneInf, doneInf, isDark }) {
   const navigate = useNavigate();
@@ -43,9 +43,8 @@ function TasksGroup({ tasks, setDoneInf, doneInf, isDark }) {
         </div>
         {tasks.map((el, index) => (
           <>
-            <Task
+            <MiniTask
               id={el.id}
-              miniTask={true}
               task={el.data}
               key={index}
               setDoneInf={setDoneInf}
