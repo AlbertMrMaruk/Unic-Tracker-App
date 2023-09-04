@@ -38,7 +38,6 @@ function TasksNavbar({ user, setTasksView, tasksView }) {
           />
           Group
         </button>
-        {/* </div> */}
       </div>
       <div className="w-[33%]">
         <Link to="/">

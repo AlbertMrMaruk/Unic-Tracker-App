@@ -1,9 +1,11 @@
-import { FaPlus, FaTrash } from "react-icons/fa";
+import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 import { updateDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase.config";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
+  const navigate = useNavigate();
   const editTask = async (doneD) => {
     await updateDoc(doc(db, "tasks", id), { ...task, done: doneD });
     setDoneInf((doneI) => ({ ...doneI, [id]: doneD }));
@@ -145,6 +147,12 @@ function Task({ task, id, setDoneInf, doneInf, isDark, miniTask }) {
                 isDark && "text-[#8e897b]"
               }`}
               onClick={deleteTask}
+            />
+            <FaEdit
+              className={`my-5 text-xl cursor-pointer ${
+                isDark && "text-[#8e897b]"
+              }`}
+              onClick={() => navigate("/edit-task", { state: { id: id } })}
             />
           </div>
         </div>

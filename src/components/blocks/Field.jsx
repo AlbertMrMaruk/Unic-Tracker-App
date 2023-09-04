@@ -21,6 +21,7 @@ function Field({
               id: elem.id,
             });
           }}
+          value={text?.data?.name}
         >
           {Array.from(options).map((el, index) => (
             <option key={index} data-id={el.id}>
