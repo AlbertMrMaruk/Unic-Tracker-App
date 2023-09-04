@@ -9,9 +9,9 @@ function Navbar({ user, setTasksView, tasksView }) {
   return (
     <div
       className="navbar
- bg-[#1b1d1f] px-[1.5rem] flex gap-2 w-100 justify-between align-top md:px-[5rem] py-6 text-center"
+ bg-[#1b1d1f] px-[1.5rem] flex gap-2 w-100 justify-between align-top md:px-[5rem] py-6 text-center mb-[5.5rem] md:mb-0"
     >
-      <div className="w-[33%] hidden  md:flex gap-5 justify-center">
+      <div className="w-[33%]  flex gap-7 justify-center absolute md:relative mt-[4.5rem] md:m-0 mx-[7rem] ">
         {/* <div className=" flex   rounded-full w-[13rem]  text-lg py-1 bg-[#353535] text-white"> */}
         {/* <span className="text-center  text-white px-3 py-1">
             <FaSearch />
@@ -60,9 +60,9 @@ function Navbar({ user, setTasksView, tasksView }) {
           </h4>
         </Link>
       </div>
-      <div className="w-[33%]  ">
+      <div className="w-[33%] flex items-center justify-center ">
         <div className="flex gap-5 w-[100%] justify-end">
-          <Link to="/create">
+          <Link to="/create" className="mr-[1.3rem] md:mr-0">
             <div className="btn btn-primary rounded-full border-[#38dbe0]  px-4 text-[#38dbe0] border-solid border-2 flex gap-2 py-2 cursor-pointer ">
               <FaPlus className="my-1.5" />
               <p className="text-lg font-[900]">CREATE</p>

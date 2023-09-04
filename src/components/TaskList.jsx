@@ -81,19 +81,6 @@ function TaskList({ setDoneInf, doneInf, isDone, setSpinner, tasksView }) {
               />
             );
           })}
-      {/* {tasks &&
-        tasks.map((el, index) => {
-          return (
-            <Task
-              task={el.data}
-              setDoneInf={setDoneInf}
-              doneInf={doneInf}
-              id={el.id}
-              key={index}
-              isDark={index !== 0}
-            />
-          );
-        })} */}
     </main>
   );
 }
