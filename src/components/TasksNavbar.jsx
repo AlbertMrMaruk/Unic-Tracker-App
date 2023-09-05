@@ -73,13 +73,13 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
       </div>
       <div className="w-[33%] flex items-center justify-center ">
         <div className="flex gap-5 w-[100%] justify-end">
+          ``
           <Link to="/create">
             <div className="btn btn-primary rounded-full border-[#38dbe0]  px-4 text-[#38dbe0] border-solid border-2 flex gap-2 py-2 cursor-pointer ">
               <FaPlus className="my-1.5" />
               <p className="text-lg font-[900]">CREATE</p>
             </div>
           </Link>
-
           <img
             src={user?.displayName === "Albert" ? avatar : noAvatar}
             className="cursor-pointer rounded-full w-[50px]"
