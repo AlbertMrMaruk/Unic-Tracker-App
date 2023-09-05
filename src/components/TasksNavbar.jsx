@@ -38,7 +38,7 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
           />
           Group
         </button>
-        <div className="text-xl font-bold mt-1.5  text-white ml-[3rem]">
+        {/* <div className="text-xl font-bold mt-1.5  text-white ml-[3rem]">
           <div className="bg-[#38dbe0] text-black rounded-full py-1 w-[3rem] mx-auto h-[2.5rem] mb-2 ">
             <span className="font-bold text-2xl">{countTasks.process}</span>
           </div>
@@ -49,15 +49,23 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
             <span className="font-bold text-2xl">{countTasks.done}</span>
           </div>
           Done
-        </div>
+        </div> */}
       </div>
       <div className="w-[33%]">
         <Link to="/">
-          <img
-            src={logo}
-            className="w-[75px] cursor-pointer  mt-[-.2rem] md:m-auto "
-            alt="logo"
-          />
+          <div className="block md:gap-4 md:flex ">
+            <div className="bg-[#2fc7cd] text-black rounded-full py-1 w-[3rem] mx-auto h-[2.5rem] mb-2 hidden md:block">
+              <span className="font-bold text-2xl ">{countTasks.process}</span>
+            </div>
+            <img
+              src={logo}
+              className="w-[75px] cursor-pointer  mt-[-.2rem] md:m-auto "
+              alt="logo"
+            />
+            <div className="bg-[#d1cdc5] text-black rounded-full py-1 w-[3rem]  mx-auto h-[2.5rem] mb-2 hidden md:block">
+              <span className="font-bold text-2xl">{countTasks.done}</span>
+            </div>
+          </div>
           <h4 className="text-[#d1cdc5] text-xl font-semibold mt-2 hidden  md:block">
             Things to focus on today.
           </h4>
@@ -65,7 +73,7 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
       </div>
       <div className="w-[33%] flex items-center justify-center ">
         <div className="flex gap-5 w-[100%] justify-end">
-          <Link to="/create" className="mr-[1.3rem] md:mr-0">
+          <Link to="/create">
             <div className="btn btn-primary rounded-full border-[#38dbe0]  px-4 text-[#38dbe0] border-solid border-2 flex gap-2 py-2 cursor-pointer ">
               <FaPlus className="my-1.5" />
               <p className="text-lg font-[900]">CREATE</p>
