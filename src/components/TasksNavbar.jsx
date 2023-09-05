@@ -4,7 +4,7 @@ import avatar from "../assets/DCA6ABF9-EE3C-4E5C-84DD-455071481FB3_1_102_o.jpeg"
 import { FaPlus, FaListAlt, FaThList } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-function TasksNavbar({ user, setTasksView, tasksView }) {
+function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
   const navigate = useNavigate();
   return (
     <div
@@ -38,6 +38,18 @@ function TasksNavbar({ user, setTasksView, tasksView }) {
           />
           Group
         </button>
+        <div className="text-xl font-bold mt-1.5  text-white ml-[3rem]">
+          <div className="bg-[#38dbe0] text-black rounded-full py-1 w-[3rem] mx-auto h-[2.5rem] mb-2 ">
+            <span className="font-bold text-2xl">{countTasks.process}</span>
+          </div>
+          Work
+        </div>
+        <div className="text-xl font-bold mt-1.5  text-[#d1cdc5] ">
+          <div className="bg-[#d1cdc5] text-black rounded-full py-1 w-[3rem]  mx-auto h-[2.5rem] mb-2 ">
+            <span className="font-bold text-2xl">{countTasks.done}</span>
+          </div>
+          Done
+        </div>
       </div>
       <div className="w-[33%]">
         <Link to="/">

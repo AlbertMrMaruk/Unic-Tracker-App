@@ -16,21 +16,31 @@ function TasksGroup({ tasks, setDoneInf, doneInf, isDark }) {
             isDark ? " bg-[#383a39]" : "bg-[#2fc7cd] "
           } rounded-t-xl flex justify-between w-[100%] py-3 px-7`}
         >
-          <div className="m-auto text-center md:text-left md:ml-[3.5rem] ">
-            <h4
-              className={`font-bold  text-uppercase text-xl ${
-                isDark && "text-[#8e897b]"
-              }`}
-            >
-              {tasks[0].data.category}
-            </h4>
-            <h2
-              className={`font-bold  text-uppercase text-2xl  ${
+          <div className="m-auto text-center md:text-left md:ml-[.5rem] flex">
+            <h3
+              className={`text-4xl mr-[2rem] font-bold m-auto hidden md:block ${
                 isDark && "text-white"
               }`}
             >
-              {tasks[0].data.project}
-            </h2>
+              {tasks.length}
+            </h3>
+            <div>
+              <h4
+                className={`font-bold  text-uppercase text-xl ${
+                  isDark && "text-[#8e897b]"
+                }`}
+              >
+                {tasks[0].data.category}
+              </h4>
+
+              <h2
+                className={`font-bold  text-uppercase text-2xl  ${
+                  isDark && "text-white"
+                }`}
+              >
+                {tasks[0].data.project}
+              </h2>
+            </div>
           </div>
           <div className=" gap-5 hidden md:flex">
             <FaPlus

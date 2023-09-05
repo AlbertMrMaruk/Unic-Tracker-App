@@ -12,7 +12,14 @@ import {
 import { db } from "../firebase.config";
 import { getAuth } from "firebase/auth";
 
-function TaskList({ setDoneInf, doneInf, isDone, setSpinner, tasksView }) {
+function TaskList({
+  setDoneInf,
+  doneInf,
+  isDone,
+  setSpinner,
+  tasksView,
+  setCountTasks,
+}) {
   const [tasks, setTasks] = useState([]);
   const [projects, setProjects] = useState();
   useEffect(() => {
@@ -43,6 +50,10 @@ function TaskList({ setDoneInf, doneInf, isDone, setSpinner, tasksView }) {
         });
         setSpinner(false);
         setProjects(new Array(...projectsSet));
+
+        isDone
+          ? setCountTasks((prev) => ({ ...prev, done: tasksArr.length }))
+          : setCountTasks((prev) => ({ ...prev, process: tasksArr.length }));
         setTasks(tasksArr);
       } catch (error) {
         console.error("Could not fetch tasks", error);

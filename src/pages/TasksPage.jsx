@@ -10,7 +10,9 @@ import TasksNavbar from "../components/TasksNavbar";
 function TasksPage() {
   const [doneInf, setDoneInf] = useState({});
   const [videos, setVideos] = useState("");
+  const [countTasks, setCountTasks] = useState({ done: 0, process: 0 });
   const [tasksView, setTasksView] = useState("classic");
+  console.log(countTasks);
   const [spinner, setSpinner] = useState(true);
   const [hidden, setHidden] = useState(true);
   const navigate = useNavigate();
@@ -19,7 +21,6 @@ function TasksPage() {
   useEffect(() => {
     if (auth.currentUser) {
       setUser(auth.currentUser);
-      console.log(auth.currentUser);
     } else {
       navigate("/sign-in");
     }
@@ -90,10 +91,12 @@ function TasksPage() {
             user={user}
             setTasksView={setTasksView}
             tasksView={tasksView}
+            countTasks={countTasks}
           />
           <TaskList
             isDone={false}
             user={user}
+            setCountTasks={setCountTasks}
             doneInf={doneInf}
             setDoneInf={setDoneInf}
             tasksView={tasksView}
@@ -110,6 +113,7 @@ function TasksPage() {
       <TaskList
         isDone={true}
         user={user}
+        setCountTasks={setCountTasks}
         doneInf={doneInf}
         setDoneInf={setDoneInf}
         tasksView={tasksView}
