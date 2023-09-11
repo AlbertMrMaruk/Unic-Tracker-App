@@ -23,7 +23,7 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
               tasksView === "classic" ? "text-[#38dbe0]" : "text-[#d1cdc5]"
             }`}
           />
-          Classic
+          Задачи
         </button>
         <button
           className={`${
@@ -36,7 +36,7 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
               tasksView === "group" ? "text-[#38dbe0]" : "text-[#d1cdc5]"
             }`}
           />
-          Group
+          Группы
         </button>
         {/* <div className="text-xl font-bold mt-1.5  text-white ml-[3rem]">
           <div className="bg-[#38dbe0] text-black rounded-full py-1 w-[3rem] mx-auto h-[2.5rem] mb-2 ">
@@ -67,7 +67,7 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
             </div>
           </div>
           <h4 className="text-[#d1cdc5] text-xl font-semibold mt-2 hidden  md:block">
-            Things to focus on today.
+            Задачи на сегодня
           </h4>
         </Link>
       </div>
@@ -76,7 +76,7 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
           <Link to="/create">
             <div className="btn btn-primary rounded-full border-[#38dbe0]  px-4 text-[#38dbe0] border-solid border-2 flex gap-2 py-2 cursor-pointer ">
               <FaPlus className="my-1.5" />
-              <p className="text-lg font-[900]">CREATE</p>
+              <p className="text-lg font-[900]">СОЗДАТЬ</p>
             </div>
           </Link>
           <img

@@ -4,7 +4,7 @@ import avatar from "../assets/DCA6ABF9-EE3C-4E5C-84DD-455071481FB3_1_102_o.jpeg"
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({ user, setTasksView, tasksView }) {
+function Navbar({ user }) {
   const navigate = useNavigate();
   return (
     <div
@@ -30,7 +30,7 @@ function Navbar({ user, setTasksView, tasksView }) {
             alt="logo"
           />
           <h4 className="text-[#d1cdc5] text-xl font-semibold mt-2 hidden  md:block">
-            Things to focus on today.
+            Задачи на сегодня
           </h4>
         </Link>
       </div>
@@ -39,7 +39,7 @@ function Navbar({ user, setTasksView, tasksView }) {
           <Link to="/create">
             <div className="btn btn-primary rounded-full border-[#38dbe0]  px-4 text-[#38dbe0] border-solid border-2 flex gap-2 py-2 cursor-pointer ">
               <FaPlus className="my-1.5" />
-              <p className="text-lg font-[900]">CREATE</p>
+              <p className="text-lg font-[900]">СОЗДАТЬ</p>
             </div>
           </Link>
 

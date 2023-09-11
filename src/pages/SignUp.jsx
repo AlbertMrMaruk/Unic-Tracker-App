@@ -49,7 +49,7 @@ function SignUp() {
       <div className="static rounded-2xl bg-[#2c2e30] pt-6 px-3 pb-10 w-[90%] md:w-[55%] m-auto mt-7  shadow-xl shadow-[#00000047] ">
         <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[6.75rem] left-[50%] ml-[-60.5px] md:top-[9.25rem]  text-black flex gap-3 ">
           <FaUser className="my-auto text-lg" />
-          Profile
+          Профиль
         </div>
         <Field
           icon={<FaUser className="text-[#38dbe0] text-4xl my-auto" />}
@@ -74,12 +74,12 @@ function SignUp() {
           onClick={onSubmit}
         >
           <FaBullseye className="my-auto text-2xl" />
-          Sign Up
+          Создать аккаунт
         </div>
       </div>
       <div className=" text-center mt-9 font-bold cursor-pointer md:mt-12 ">
         <Link to="/sign-in" className="  text-[#1ad6dd]">
-          Log in to existed
+          Уже есть аккаунт? Войти
         </Link>
       </div>
     </div>

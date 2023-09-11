@@ -50,19 +50,19 @@ function CreateProject() {
       <div className="static rounded-2xl bg-[#2c2e30] pt-6 px-3 pb-10 w-[90%] md:w-[55%] m-auto mt-7  shadow-xl shadow-[#00000047] ">
         <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[6.75rem] left-[50%] ml-[-82.125px]  md:top-[9.25rem]  text-black flex gap-3 ">
           <FaProjectDiagram className="my-auto text-lg" />
-          New Project
+          Новый проект
         </div>
         <Field
           icon={
             <FaProjectDiagram className="text-[#38dbe0] text-4xl my-auto" />
           }
-          placeholder={"Your project name..."}
+          placeholder={"Название проекта..."}
           setText={setProject}
           text={project}
         ></Field>
         <Field
           icon={<FaObjectGroup className="text-[#38dbe0] text-4xl my-auto" />}
-          placeholder={"Choose Project..."}
+          placeholder={"Выберите группу..."}
           setText={setCategory}
           text={category}
           select={true}
@@ -73,7 +73,7 @@ function CreateProject() {
           onClick={addProject}
         >
           <FaBullseye className="my-auto text-2xl" />
-          Make it So
+          Создать
         </div>
       </div>
     </div>

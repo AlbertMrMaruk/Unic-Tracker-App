@@ -106,7 +106,7 @@ function TasksPage() {
             className="text-4xl my-10 font-bold text-white text-center"
             onClick={loadReels}
           >
-            Done Tasks
+            Готовые задачи
           </h2>
         </>
       )}

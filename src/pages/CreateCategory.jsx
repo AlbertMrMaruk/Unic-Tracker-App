@@ -35,11 +35,11 @@ function CreateCategory() {
       <div className="static rounded-2xl bg-[#2c2e30] pt-6 px-3 pb-10 w-[90%] md:w-[55%] m-auto mt-7  shadow-xl shadow-[#00000047] ">
         <div className="absolute bg-[#38dbe0] py-2  text-sm uppercase font-bold px-4 rounded-md top-[6.75rem] left-[50%] ml-[-87.5px] md:top-[9.25rem]  text-black flex gap-3 ">
           <FaObjectGroup className="my-auto text-lg" />
-          New Category
+          Новая группа
         </div>
         <Field
           icon={<FaObjectGroup className="text-[#38dbe0] text-4xl my-auto" />}
-          placeholder={"Your category name..."}
+          placeholder={"Название группы..."}
           setText={setCategory}
           text={category}
         ></Field>
@@ -48,7 +48,7 @@ function CreateCategory() {
           onClick={addCategory}
         >
           <FaBullseye className="my-auto text-2xl" />
-          Make it So
+          Создать
         </div>
       </div>
     </div>
