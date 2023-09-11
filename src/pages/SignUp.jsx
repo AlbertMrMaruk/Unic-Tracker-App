@@ -53,19 +53,19 @@ function SignUp() {
         </div>
         <Field
           icon={<FaUser className="text-[#38dbe0] text-4xl my-auto" />}
-          placeholder={"Name"}
+          placeholder={"Имя"}
           setText={(e) => setFormData({ ...formData, name: e })}
           text={name}
         ></Field>
         <Field
           icon={<FaEnvelope className="text-[#38dbe0] text-4xl my-auto" />}
-          placeholder={"Email"}
+          placeholder={"Почта"}
           setText={(e) => setFormData({ ...formData, email: e })}
           text={email}
         ></Field>
         <Field
           icon={<FaLock className="text-[#38dbe0] text-4xl my-auto" />}
-          placeholder={"Password"}
+          placeholder={"Пароль"}
           setText={(e) => setFormData({ ...formData, password: e })}
           text={password}
         ></Field>
