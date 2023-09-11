@@ -1,7 +1,7 @@
 import { FaObjectGroup, FaProjectDiagram, FaBullseye } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Field from "../components/blocks/Field";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +21,10 @@ function CreateProject() {
       navigate("/sign-in");
     }
     const getCategories = async () => {
-      const categoriesSnap = await getDocs(collection(db, "categories"));
+      const docsRef = collection(db, "categories");
+      const q = query(docsRef, where("userId", "==", auth.currentUser?.uid));
+      //Execute a query
+      const categoriesSnap = await getDocs(q);
       const categoriesArr = [];
       categoriesSnap.forEach((el) =>
         categoriesArr.push({ data: el.data(), id: el.id })

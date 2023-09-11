@@ -12,6 +12,8 @@ import Field from "../components/blocks/Field";
 import {
   collection,
   addDoc,
+  query,
+  where,
   getDocs,
   serverTimestamp,
 } from "firebase/firestore";
@@ -38,7 +40,9 @@ function CreateTask() {
       navigate("/sign-in");
     }
     const getProjects = async () => {
-      const projectsSnap = await getDocs(collection(db, "projects"));
+      const docsRef = collection(db, "projects");
+      const q = query(docsRef, where("userId", "==", auth.currentUser?.uid));
+      const projectsSnap = await getDocs(q);
       const projectsArr = [];
       projectsSnap.forEach((el) =>
         projectsArr.push({ data: el.data(), id: el.id })
