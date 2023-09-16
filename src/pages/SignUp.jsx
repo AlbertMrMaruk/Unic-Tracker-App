@@ -4,11 +4,8 @@ import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../hooks/useAuthStatus";
 import { db } from "../firebase.config";
 import Field from "../components/blocks/Field";
 
@@ -24,7 +21,6 @@ function SignUp() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const auth = getAuth();
       const userCreds = await createUserWithEmailAndPassword(
         auth,
         email,

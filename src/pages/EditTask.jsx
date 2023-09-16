@@ -4,7 +4,7 @@ import {
   FaBullseye,
   FaCalendarCheck,
 } from "react-icons/fa";
-import { getAuth } from "firebase/auth";
+import { auth } from "../hooks/useAuthStatus";
 // import logo from "../assets/output-onlinepngtools (8) — копия.png";
 // import { askForNotif, PERMISSION_STATES, subscribeUserToPush } from "../utils";
 import Navbar from "../components/Navbar";
@@ -13,6 +13,8 @@ import {
   collection,
   updateDoc,
   doc,
+  query,
+  where,
   getDoc,
   getDocs,
   serverTimestamp,
@@ -30,7 +32,6 @@ function EditTask() {
   const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
   const [user, setUser] = useState(null);
-  const auth = getAuth();
   const { state } = useLocation();
   // const [, setPermissionState] = useState(PERMISSION_STATES.UNKNOWN);
   useEffect(() => {
@@ -40,7 +41,9 @@ function EditTask() {
       navigate("/sign-in");
     }
     const getProjects = async () => {
-      const projectsSnap = await getDocs(collection(db, "projects"));
+      const docsRef = collection(db, "projects");
+      const q = query(docsRef, where("userId", "==", auth.currentUser?.uid));
+      const projectsSnap = await getDocs(q);
       const projectsArr = [];
       projectsSnap.forEach((el) =>
         projectsArr.push({ data: el.data(), id: el.id })

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TaskList from "../components/TaskList";
 import { Reels } from "../services/ReelsService";
-import { getAuth } from "firebase/auth";
+import { auth } from "../hooks/useAuthStatus";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/blocks/Spinner";
 import TasksNavbar from "../components/TasksNavbar";
@@ -17,7 +17,6 @@ function TasksPage() {
   const [hidden, setHidden] = useState(true);
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const auth = getAuth();
   useEffect(() => {
     if (auth.currentUser) {
       setUser(auth.currentUser);

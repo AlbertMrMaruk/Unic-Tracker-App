@@ -8,7 +8,7 @@ function Navbar({ user }) {
   const navigate = useNavigate();
   return (
     <div
-      className="navbar
+      className="navbar pt-[3rem]
  bg-[#1b1d1f] px-[1.5rem] flex gap-2 w-100 justify-between  items-center md:px-[5rem] py-6 text-center"
     >
       <div className="w-[33%] hidden ml-[2rem]  md:block ">
