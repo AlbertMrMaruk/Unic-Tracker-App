@@ -13,6 +13,8 @@ import {
   collection,
   updateDoc,
   doc,
+  query,
+  where,
   getDoc,
   getDocs,
   serverTimestamp,
@@ -39,7 +41,9 @@ function EditTask() {
       navigate("/sign-in");
     }
     const getProjects = async () => {
-      const projectsSnap = await getDocs(collection(db, "projects"));
+      const docsRef = collection(db, "projects");
+      const q = query(docsRef, where("userId", "==", auth.currentUser?.uid));
+      const projectsSnap = await getDocs(q);
       const projectsArr = [];
       projectsSnap.forEach((el) =>
         projectsArr.push({ data: el.data(), id: el.id })
