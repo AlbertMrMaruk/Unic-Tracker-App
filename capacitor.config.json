@@ -1,0 +1,8 @@
+{
+  "appId": "com.inlife.unictracker",
+  "appName": "unic-tracker",
+  "webDir": "build",
+  "server": {
+    "androidScheme": "https"
+  }
+}

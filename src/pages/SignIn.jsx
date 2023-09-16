@@ -1,7 +1,8 @@
 import Navbar from "../components/Navbar";
 import { FaBullseye, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Field from "../components/blocks/Field";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../hooks/useAuthStatus";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -14,7 +15,6 @@ function SignIn() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const auth = getAuth();
       const userCreds = await signInWithEmailAndPassword(auth, email, password);
       if (userCreds.user) {
         navigate("/");

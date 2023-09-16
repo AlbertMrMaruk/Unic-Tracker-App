@@ -4,7 +4,7 @@ import {
   FaBullseye,
   FaCalendarCheck,
 } from "react-icons/fa";
-import { getAuth } from "firebase/auth";
+import { auth } from "../hooks/useAuthStatus";
 // import logo from "../assets/output-onlinepngtools (8) — копия.png";
 // import { askForNotif, PERMISSION_STATES, subscribeUserToPush } from "../utils";
 import Navbar from "../components/Navbar";
@@ -30,7 +30,6 @@ function EditTask() {
   const [desc, setDesc] = useState("");
   const [task, setTask] = useState("");
   const [user, setUser] = useState(null);
-  const auth = getAuth();
   const { state } = useLocation();
   // const [, setPermissionState] = useState(PERMISSION_STATES.UNKNOWN);
   useEffect(() => {

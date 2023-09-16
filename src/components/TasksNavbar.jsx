@@ -8,7 +8,7 @@ function TasksNavbar({ user, setTasksView, tasksView, countTasks }) {
   const navigate = useNavigate();
   return (
     <div
-      className="navbar
+      className="navbar pt-[3rem]
  bg-[#1b1d1f] px-[1.5rem] flex gap-2 w-100 justify-between align-top md:px-[5rem] py-6 text-center mb-[5.5rem] md:mb-0"
     >
       <div className="w-[33%]  flex gap-7 md:ml-[2rem] md:mr-0 absolute md:relative mt-[4.5rem] md:mt-0 mx-[6rem] ">

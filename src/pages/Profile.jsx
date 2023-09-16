@@ -5,13 +5,12 @@ import { FaEnvelope, FaUser } from "react-icons/fa";
 // import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 // import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getAuth } from "firebase/auth";
+import { auth } from "../hooks/useAuthStatus";
 import Field from "../components/blocks/Field";
 function Profile() {
   const [user, setUser] = useState({ email: "", displayName: "" });
   const { email, displayName } = user;
   const navigate = useNavigate();
-  const auth = getAuth();
   useEffect(() => {
     if (auth.currentUser) {
       setUser(auth.currentUser);
